@@ -11,7 +11,7 @@ password:
 summary: 用代码示例带你一步一步了解 TypeScript 基础语法知识
 tags: TypeScript
 categories: 前端
-keywords: TypeScript 基础语法
+keywords: typescript,typescript中文教程,typescript语法,typescript enum,typescript array,typescript interface
 ---
 
 # 1. 开始一个项目
