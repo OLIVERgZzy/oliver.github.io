@@ -4,13 +4,11 @@
 
 # Site
 title: Oliver's Blog
-subtitle: 个人技术博客
+subtitle: 记录下自己成长的点滴
 description: 享受编程和技术所带来的快乐 - Enjoy Coding
 keywords: javascript,full stack developer,font end,blog
 author: Oliver
-language:
-  - zh-CN
-  - en
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
