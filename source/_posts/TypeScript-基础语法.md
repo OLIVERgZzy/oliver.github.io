@@ -18,6 +18,8 @@ keywords: typescript,typescript中文教程,typescript语法,typescript enum,typ
 
 ---
 
+## 1.1 安装模块
+
 ```bash
 # 初始化项目
 npm init -y
@@ -44,7 +46,7 @@ npm i clean-webpack-plugin -D
 npm i webpack-merge -D
 ```
 
-## 配置 package.json
+## 1.2 配置 package.json
 
 ```json
 "scripts": {
@@ -53,7 +55,7 @@ npm i webpack-merge -D
 }
 ```
 
-# 二、TS 数据类型对比 ES6 数据类型
+# 二、对比 TS 数据类型与 ES6 数据类型
 
 ---
 
@@ -75,9 +77,11 @@ npm i webpack-merge -D
 |                | **枚举**              |
 |                | **高级类型**          |
 
-# 三、基本类型
+# 三、数据类型
 
 ---
+
+## 3.1 基本类型
 
 ```typescript
 // 原始类型
@@ -138,7 +142,7 @@ let endless = () => {
 };
 ```
 
-### 2. 枚举类型
+## 3.2 枚举类型
 
 ```typescript
 // 数字枚举
@@ -210,11 +214,9 @@ let g1: G = G.b;
 let g2: G.a = G.a;
 ```
 
-# 四、接口类型
+## 3.3 接口类型
 
----
-
-## 1. 对象类型接口
+### 3.3.1 对象类型接口
 
 ```typescript
 // 定义接口 List
@@ -245,7 +247,7 @@ let result = {
 render(result);
 ```
 
-### 鸭式变形法
+#### 3.3.1.1 鸭式变形法
 
 > 只要传入的数据格式满足接口定义的必要条件也是可以允许的。
 
@@ -261,7 +263,7 @@ render({
 }); // ERROR：如果直接传入对象自变量，TS则会对额外的字段进行类型检查
 ```
 
-### 有三种绕过方式
+#### 3.3.1.2 有三种绕过方式
 
 1. 加类型断言
 2. 用变量传递
@@ -295,7 +297,7 @@ interface List {
 }
 ```
 
-### 假设有个新需求
+#### 3.3.1.3 假设有个新需求
 
 > 需要判断一个对象中是否有一个新字段（age），如果有则打印出来
 
@@ -333,7 +335,7 @@ let result = {
 render(result);
 ```
 
-### 索引签名
+#### 3.3.1.3 索引签名
 
 > 我们可以明确的指定索引签名。例如：假设你想确认存储在对象中任何内容都符合  { message: string }  的结构，你可以通过  [index: string]: { message: string }  来实现。
 
@@ -355,9 +357,9 @@ foo["a"] = { abc: "some message" };
 
 节选自：[深入理解 TypeScript - 索引签名](https://jkchao.github.io/typescript-book-chinese/typings/indexSignatures.html#typescript-%E7%B4%A2%E5%BC%95%E7%AD%BE%E5%90%8D)
 
-## 2. 函数类型接口
+### 3.3.2 函数类型接口
 
-### 声明
+#### 3.3.2.1 声明
 
 ```typescript
 // 声明函数的四种方式
@@ -382,7 +384,7 @@ type Add = (x: number, y: number) => number;
 let add: Add = (a, b) => a + b;
 ```
 
-### 可选参数
+#### 3.3.2.2 可选参数
 
 ```typescript
 function add(x: number, y?: number) {
@@ -398,7 +400,7 @@ function add(x: number, y?: number, z: number) {
 }
 ```
 
-### 默认值
+#### 3.3.2.3 默认值
 
 ```typescript
 function add(x: number, y = 0, z: number, q = 1) {
@@ -408,7 +410,7 @@ function add(x: number, y = 0, z: number, q = 1) {
 console.log(add(1, undefined, 3)); // 5
 ```
 
-### 剩余参数
+#### 3.3.2.4 剩余参数
 
 ```typescript
 function add(x: number, ...rest: number[]) {
@@ -423,7 +425,7 @@ function add(x: number, ...rest: number[]) {
 console.log(add(1, 2, 3, 4, 5)); // 15
 ```
 
-### 函数重载
+#### 3.3.2.5 函数重载
 
 ```typescript
 function add(...rest: number[]): number;
@@ -442,11 +444,9 @@ console.log(add(1, 2, 3)); // 6
 console.log(add("a", "b", "c")); // "abc"
 ```
 
-# 六、类
+## 3.4 类
 
----
-
-## 1. 基本知识
+### 3.4.1 基本知识
 
 ```typescript
 class Dog {
@@ -485,7 +485,7 @@ console.log(Husky.food); // 'bones'
 > 构造函数设置为 protected，说明这个类只能被继承，而不能被实例化。
 > 构造函数设置为 private，说明这个类不能被继承，不能被实例化。
 
-## 2. 抽象类——多态特性
+### 3.4.2 抽象类——多态特性
 
 ```typescript
 abstract class Animal {
@@ -527,7 +527,7 @@ animals.forEach((i) => {
 });
 ```
 
-## 3. 链式调用
+### 3.4.3 链式调用
 
 ```typescript
 class WorkFlow {
@@ -550,13 +550,11 @@ class MyFlow extends WorkFlow {
 new MyFlow().next().step1().step2(); // ok
 ```
 
-# 七、类与接口的关系
-
----
+## 3.5 类与接口的关系
 
 ![类与接口的关系.jpg](https://i.loli.net/2020/06/26/doJnDwsM3qIr7O1.jpg)
 
-## 1. 接口只能约束类的公有成员
+### 3.5.1 接口只能约束类的公有成员
 
 ```typescript
 interface Human {
@@ -574,7 +572,7 @@ class Asian implements Human {
 }
 ```
 
-## 2. 一个类类型接口可以继承多个接口
+### 3.5.2 一个类类型接口可以继承多个接口
 
 ```typescript
 interface Man extends Human {
@@ -595,7 +593,7 @@ let boy: Boy = {
 };
 ```
 
-## 3. 接口继承类
+### 3.5.3 接口继承类
 
 ```typescript
 class Auto {
@@ -609,11 +607,11 @@ class C implements AutoInterface {
 }
 ```
 
-# 八、泛型
+# 四、泛型
 
 ---
 
-## 1. 泛型函数与泛型接口
+## 4.1 泛型函数与泛型接口
 
 ```typescript
 // 泛型函数
@@ -634,7 +632,7 @@ interface Log<T = string> {
 }
 ```
 
-## 2. 泛型类与泛型约束
+## 4.2 泛型类与泛型约束
 
 ```typescript
 // 泛型类
@@ -676,17 +674,17 @@ log("123");
 log({ length: 1 });
 ```
 
-## 3. 泛型的好处
+## 4.3 泛型的好处
 
 1. 函数和类可以轻松地支持多种类型，增强程序的拓展性
 2. 不必写多条函数重载，冗长的联合类型声明，增强代码可读性
 3. 灵活控制类型之前的约束
 
-# 九、类型检查机制
+# 五、类型检查机制
 
 ---
 
-## 1. 自动类型推断
+## 5.1 自动类型推断
 
 ```typescript
 let a = 1; // 自动推断a为number
@@ -694,7 +692,7 @@ let a = 1; // 自动推断a为number
 let b = [1, null]; // 自动推断 b 为 []any
 ```
 
-## 2. 类型兼容性
+## 5.2 类型兼容性
 
 ##### 当一个类型 Y 可以被赋值给另一个类型 X 时，我们就可以说类型 X 兼容类型 Y X 兼容 Y : X (目标类型) = Y（源类型）
 
@@ -703,14 +701,14 @@ let b = [1, null]; // 自动推断 b 为 []any
 1. 结构之间兼容：成员少的兼容成员多的
 2. 函数之间兼容：参数多的兼容参数少的
 
-### 变量兼容性
+### 5.2.1 变量兼容性
 
 ```typescript
 let s: string = "a";
 s = null;
 ```
 
-### 接口兼容性
+### 5.2.2 接口兼容性
 
 ```typescript
 // 接口兼容性
@@ -733,7 +731,7 @@ x = y; // ok
 
 > 结论：属性少的兼容属性多的
 
-### 函数兼容性
+### 5.2.3 函数兼容性
 
 ```typescript
 /**
@@ -801,7 +799,7 @@ function overload(a: string, b: string): string;
 function overload(a: any, b: any): any;
 ```
 
-### 枚举兼容性
+### 5.2.4 枚举兼容性
 
 ```typescript
 // 枚举兼容性
@@ -818,7 +816,7 @@ let no: number = Fruit.Apple;
 // let color: Color.Red = Fruit.Apple; // Error 不兼容
 ```
 
-### 类兼容性
+### 5.2.5 类兼容性
 
 ```typescript
 // 类兼容性
@@ -864,7 +862,7 @@ aa = cc;
 cc = aa;
 ```
 
-### 泛型兼容性
+### 5.2.6 泛型兼容性
 
 ```typescript
 // 泛型接口
@@ -887,7 +885,7 @@ let log2 = <U>(y: U): U => {
 log1 = log2;
 ```
 
-## 3. 类型保护机制
+## 5.3 类型保护机制
 
 TypeScript 能够在特定的区块中保证变量属于某种确定的类型。
 可以在此区块中放心地引用此类型的属性，或调用此类型的方法。
@@ -960,11 +958,11 @@ enum Type { Strong, Week }
  getLanguage(Type.Strong);
 ```
 
-# 十、高级类型
+# 六、高级类型
 
 ---
 
-## 1. 交叉类型与联合类型
+## 6.1 交叉类型与联合类型
 
 交叉类型：适合做对象混入
 联合类型：类型具有不确定性，增强代码的灵活性
@@ -1046,7 +1044,7 @@ function area(s: Shape) {
 }
 ```
 
-## 2. 索引类型
+## 6.2 索引类型
 
 ```typescript
 let obj = {
@@ -1075,7 +1073,7 @@ console.log(getValues(obj, ["a", "b"])); // OK
 // console.log(getValues(obj, ['e', 'f'])); // Error
 ```
 
-## 3. 映射类型
+## 6.3 映射类型
 
 ```typescript
 interface Obj {
@@ -1093,7 +1091,7 @@ type PickObj = Pick<Obj, "a" | "b">;
 type RecordObj = Record<"x" | "y", Obj>;
 ```
 
-## 4. 条件类型
+## 6.4 条件类型
 
 ```typescript
 // T extends U ? X : Y
@@ -1131,16 +1129,16 @@ type T5 = NotNull<string | number | undefined | null>;
 type Y7 = ReturnType<() => stringn>;
 ```
 
-# 十一、ES6 与 CommonJS 的模块系统
+# 七、ES6 与 CommonJS 的模块系统
 
 ---
 
-#### 两种模式不要混用
+## 7.1 两种模式不要混用
 
 1. ES6
 2. CommonJS
 
-# 十二、命名空间
+# 八、命名空间
 
 ---
 
@@ -1179,11 +1177,11 @@ import cricle = Shape.cricle;
 console.log(cricle(1)); // 3.14
 ```
 
-# 十三、声明合并
+# 九、声明合并
 
 ---
 
-## 1. 接口合并
+## 9.1 接口合并
 
 ```typescript
 /**
@@ -1215,7 +1213,7 @@ let a: A = {
 };
 ```
 
-## 2. 函数与命名空间合并
+## 9.2 函数与命名空间合并
 
 ```typescript
 function Lib() {}
@@ -1225,7 +1223,7 @@ namespace Lib {
 console.log(Lib.version); // 1.0
 ```
 
-## 3. 类与命名空间合并
+## 9.3 类与命名空间合并
 
 ```typescript
 class C {}
@@ -1235,7 +1233,7 @@ namespace C {
 console.log(C.state); // 1
 ```
 
-## 4. 枚举与命名空间合并
+## 9.4 枚举与命名空间合并
 
 ```typescript
 enum Color {
@@ -1260,7 +1258,7 @@ console.log(Color);
  */
 ```
 
-# 十四、如何编写声明文件
+# 十、如何编写声明文件
 
 ---
 
@@ -1271,11 +1269,11 @@ console.log(Color);
 2. 模块类库
 3. umd 类库
 
-# 十五、引入 jQuery
+# 十一、引入 jQuery
 
 ---
 
-## 1. 安装
+## 11.1 安装
 
 ```cmd
 npm i jquery
@@ -1285,20 +1283,20 @@ npm i @types/jquery -D
 大多数类库都会提供声明文件
 可以上 [TypeSearch](microsoft.github.io/TypeSearch) 去查找社区有没有为类库提供声明文件
 
-## 2. 使用
+## 11.2 使用
 
 ```typescript
 import $ from "jquery";
 $(".app").css("color", "red");
 ```
 
-# 十六、如何自己编写一个声明文件
+# 十二、如何自己编写一个声明文件
 
 ---
 
 > 可以参考此网站 [Definitely Typed](definitelytyped.org/guides/contributing.html)
 
-## 1. 全局库
+## 12.1 全局库
 
 ```typescript
 // global-lib.js
@@ -1328,7 +1326,7 @@ console.log(globalLib({ x: 1 }));
 console.log(globalLib.doSomething());
 ```
 
-## 2. 模块库
+## 12.2 模块库
 
 ```typescript
 // module-lib.js
@@ -1364,7 +1362,7 @@ import moduleLib from "./module-lib.js";
 console.log(moduleLib.doSomething());
 ```
 
-## 3. umd 库
+## 12.3 umd 库
 
 ##### tsconfig 默认不允许 umd 使用全局引用方式，若如果想通过全局引用，则需要打开设置 "allowUmdGlobalAccess": true
 
@@ -1402,9 +1400,9 @@ import umdLib from "./umd-lib.js";
 console.log(umdLib.doSomething());
 ```
 
-## 4. 给类库添加自定义方法
+## 12.4 给类库添加自定义方法
 
-##### 这里以 moment 为例
+> 这里以 moment 为例
 
 ```typescript
 import m from "moment";
@@ -1416,9 +1414,9 @@ declare module "moment" {
 m.myFunction = () => {};
 ```
 
-## 5. 声明文件的依赖
+## 12.5 声明文件的依赖
 
-##### 这里以 jQuery 为例
+> 这里以 jQuery 为例
 
 ###### /node_modules/@types/jquery/package.json
 

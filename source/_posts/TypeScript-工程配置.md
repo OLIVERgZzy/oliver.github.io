@@ -16,6 +16,8 @@ keywords: typescript,typescript中文教程,typescript工程配置
 
 # 一、文件选项配置
 
+---
+
 ```json
 {
   "extends": "./tsconfig.base.json", // 继承其他配置文件 可以被覆盖
@@ -36,7 +38,9 @@ keywords: typescript,typescript中文教程,typescript工程配置
 }
 ```
 
-# 二、 编译选项配置
+# 二、编译选项配置
+
+---
 
 ```json
 {
@@ -108,6 +112,8 @@ keywords: typescript,typescript中文教程,typescript工程配置
 
 # 三、工程引用
 
+---
+
 > 场景：在一个代码仓库中，存放多个需要单独构建的工程。
 > 例如一个全栈工程，有客户端和服务端，提取出共一些公用的代码，存放到一个公共文件夹下。
 
@@ -129,7 +135,7 @@ keywords: typescript,typescript中文教程,typescript工程配置
 └─tsconfig.json ------------------------------------// 整个项目的配置
 ```
 
-### 1. 整个项目的配置
+## 3.1 整个项目的配置
 
 ```json
 {
@@ -143,7 +149,7 @@ keywords: typescript,typescript中文教程,typescript工程配置
 }
 ```
 
-### 2. 客户端配置文件
+## 3.2 客户端配置文件
 
 ```json
 {
@@ -155,7 +161,7 @@ keywords: typescript,typescript中文教程,typescript工程配置
 }
 ```
 
-### 3. 服务端配置文件
+## 3.3 服务端配置文件
 
 ```json
 {
@@ -167,7 +173,7 @@ keywords: typescript,typescript中文教程,typescript工程配置
 }
 ```
 
-### 4. 测试用例配置文件
+## 3.4 测试用例配置文件
 
 ```json
 {
@@ -176,7 +182,7 @@ keywords: typescript,typescript中文教程,typescript工程配置
 }
 ```
 
-### 5. 构建
+## 3.5 构建
 
 ```bash
 tsc -b src/client --verbose // 构建客户端
@@ -185,7 +191,7 @@ tsc -b src/server --verbose // 构建服务端
 tsc -b test --clean // 清空构建的文件
 ```
 
-### 6. 工程引用优点
+## 3.6 工程引用优点
 
 - 解决输出目录结构的问题
 - 解决了单个工程构建的问题
@@ -193,13 +199,15 @@ tsc -b test --clean // 清空构建的文件
 
 # 四、编译工具
 
-### 1. 如何选择 TypeScript 编译工具？
+---
+
+## 4.1 如何选择 TypeScript 编译工具？
 
 1. 如果没有使用过 Babel，首选 TypeScript 自生的编译器（可配合 ts-loader 使用）
 2. 如果项目中已经使用了 Babel，安装 @bable/preset-typescript（可配合 tsc 做类型检查）
 3. 两种编译工具不要混用
 
-### 2. ts-loader（推荐）
+## 4.2 ts-loader（推荐）
 
 ```js
 // webpack.base.config.js
@@ -239,7 +247,7 @@ module.exports = {
 };
 ```
 
-### 3. awesome-typescript-loader（不推荐）
+## 4.3 awesome-typescript-loader（不推荐）
 
 > 与 ts-loader 的主要区别：
 >
@@ -283,11 +291,10 @@ module.exports = {
 };
 ```
 
-### 4. Babel 7+
-
-#### package.json
+## 4.4 Babel 7+
 
 ```json
+// package.json
 {
   "name": "ts-babel-leaning",
   "version": "1.0.0",
@@ -312,9 +319,8 @@ module.exports = {
 }
 ```
 
-#### tsconfig.json
-
 ```json
+// tsconfig.json
 {
   "compilerOptions": {
     "noEmit": true // 与 Babel 混用时，此选项请开启
@@ -322,12 +328,12 @@ module.exports = {
 }
 ```
 
-#### Babel 与 TypeScript 两者结合
+### 4.4.1 Babel 与 TypeScript 两者结合
 
 > Babel 只做语言转换
 > TypeScript 只做类型检查
 
-#### 在 Babel 中使用 TypeScript 的注意事项
+### 4.4.2 在 Babel 中使用 TypeScript 的注意事项
 
 1. 命名空间在 Babel 中编译会报错，不要使用
 2. 类型断言写法使用 as
@@ -336,7 +342,9 @@ module.exports = {
 
 # 五、代码检查工具
 
-## 1. ESLint
+---
+
+## 5.1 ESLint
 
 ![ESLint.jpg](https://i.loli.net/2020/06/26/Gp2QmlDX7uWIzKV.jpg)
 
@@ -344,11 +352,11 @@ module.exports = {
 
 ![ESLint.jpg](https://i.loli.net/2020/06/26/HfmKGColOe4rAwJ.jpg)
 
-## 2. 如何在 TypesSript 中使用 ESLint
+## 5.2 如何在 TypesSript 中使用 ESLint
 
-### package.json
+### 5.2.1 安装 ESLint 模块
 
-需要安装这两个插件
+#### 在 package.json 文件中
 
 ```json
 {
@@ -362,7 +370,7 @@ module.exports = {
 }
 ```
 
-### .eslintrc.json
+#### 在 .eslintrc.json 文件中
 
 ```json
 {
@@ -378,9 +386,9 @@ module.exports = {
 }
 ```
 
-### 3. 安装 VSCode ESLint 插件
+### 5.2.2 安装 VSCode ESLint 插件
 
-#### setting.json
+#### 在 setting.json 文件中
 
 ```json
 {
@@ -404,7 +412,7 @@ module.exports = {
 }
 ```
 
-## 4. babel-eslint 与 typescript-eslint
+## 5.3 babel-eslint 与 typescript-eslint
 
 - babel-eslint: 支持 TypeScript 没有的额外的语法检查，抛弃 TypeScript，不支持类型检查
 - typescript-eslint：基于 TypeScript 的 AST，支持创建基于类型信息的规则（tsconfig.json）
