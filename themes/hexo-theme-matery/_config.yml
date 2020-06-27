@@ -225,24 +225,21 @@ myProjects:
 mySkills:
   enable: true
   data:
-    Node.js:
-      background: "linear-gradient(to right, #FF0066 0%, #FF00CC 100%)"
-      percent: 70%
-    Vue:
-      background: "linear-gradient(to right, #4CAF50 0%, #81C784 100%)"
-      percent: 80%
     JavaScript:
-      background: "linear-gradient(to right, #9900FF 0%, #CC66FF 100%)"
+      background: "linear-gradient(to right, #ff0000 0%, #fbc16b 100%);"
       percent: 80%
-    HTML5:
-      background: "linear-gradient(to right, #2196F3 0%, #42A5F5 100%)"
-      percent: 80%
-    CSS:
-      background: "linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)"
+    Vue:
+      background: "linear-gradient(to right, #00ff0a 0%, #1d8821 100%);"
       percent: 70%
-    SQL:
-      background: "linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)"
-      percent: 80%
+    Node.js:
+      background: "linear-gradient(to right, #ff0066 0%, #ff31d6 100%);"
+      percent: 60%
+    MySQL:
+      background: "linear-gradient(to right, #d8ff00 0%, #ffe500 100%);"
+      percent: 60%
+    TypeScript:
+      background: "linear-gradient(to right, #0000FF 0%, #00FFFF 100%)"
+      percent: 50%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
