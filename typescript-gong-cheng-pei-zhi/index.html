@@ -420,7 +420,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、文件选项配置"><a href="#一、文件选项配置" class="headerlink" title="一、文件选项配置"></a>一、文件选项配置</h1><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+                <h1 id="一、文件选项配置"><a href="#一、文件选项配置" class="headerlink" title="一、文件选项配置"></a>一、文件选项配置</h1><hr>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"extends"</span><span class="token operator">:</span> <span class="token string">"./tsconfig.base.json"</span><span class="token punctuation">,</span> // 继承其他配置文件 可以被覆盖
 
   <span class="token property">"files"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"src/a.ts"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> // 编译器需要编译的单个文件列表
@@ -437,7 +438,8 @@
 
   <span class="token property">"compileOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 保存时自动编译（vscode尚未支持 <span class="token number">2020.02</span>.<span class="token number">03</span>）
 <span class="token punctuation">}</span></code></pre>
-<h1 id="二、-编译选项配置"><a href="#二、-编译选项配置" class="headerlink" title="二、 编译选项配置"></a>二、 编译选项配置</h1><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h1 id="二、编译选项配置"><a href="#二、编译选项配置" class="headerlink" title="二、编译选项配置"></a>二、编译选项配置</h1><hr>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"incremental"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 增量编译，提高编译速度
     <span class="token property">"tsBuildInfoFile"</span><span class="token operator">:</span> <span class="token string">"./buildFile"</span><span class="token punctuation">,</span> // 增量编译文件的存储位置
@@ -502,7 +504,8 @@
     <span class="token property">"listFiles"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 打印编译的文件（包括引用的声明文件）
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h1 id="三、工程引用"><a href="#三、工程引用" class="headerlink" title="三、工程引用"></a>三、工程引用</h1><blockquote>
+<h1 id="三、工程引用"><a href="#三、工程引用" class="headerlink" title="三、工程引用"></a>三、工程引用</h1><hr>
+<blockquote>
 <p>场景：在一个代码仓库中，存放多个需要单独构建的工程。<br>例如一个全栈工程，有客户端和服务端，提取出共一些公用的代码，存放到一个公共文件夹下。</p>
 </blockquote>
 <pre><code>├─src --------------------------------------------- // 项目代码
@@ -519,7 +522,7 @@
 │ ├─client.test.ts -------------------------------- // 客户端测试用例
 │ ├─server.test.ts -------------------------------- // 服务端测试用例
 │ └─tsconfig.json --------------------------------- // 测试用例配置文件
-└─tsconfig.json ------------------------------------// 整个项目的配置</code></pre><h3 id="1-整个项目的配置"><a href="#1-整个项目的配置" class="headerlink" title="1. 整个项目的配置"></a>1. 整个项目的配置</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+└─tsconfig.json ------------------------------------// 整个项目的配置</code></pre><h2 id="3-1-整个项目的配置"><a href="#3-1-整个项目的配置" class="headerlink" title="3.1 整个项目的配置"></a>3.1 整个项目的配置</h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"target"</span><span class="token operator">:</span> <span class="token string">"es5"</span><span class="token punctuation">,</span>
     <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"commonjs"</span><span class="token punctuation">,</span>
@@ -528,39 +531,40 @@
     <span class="token property">"declaration"</span><span class="token operator">:</span> <span class="token boolean">true</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="2-客户端配置文件"><a href="#2-客户端配置文件" class="headerlink" title="2. 客户端配置文件"></a>2. 客户端配置文件</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h2 id="3-2-客户端配置文件"><a href="#3-2-客户端配置文件" class="headerlink" title="3.2 客户端配置文件"></a>3.2 客户端配置文件</h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"extends"</span><span class="token operator">:</span> <span class="token string">"../../tsconfig.json"</span><span class="token punctuation">,</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"outDir"</span><span class="token operator">:</span> <span class="token string">"../../dist/client"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"references"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"../common"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="3-服务端配置文件"><a href="#3-服务端配置文件" class="headerlink" title="3. 服务端配置文件"></a>3. 服务端配置文件</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h2 id="3-3-服务端配置文件"><a href="#3-3-服务端配置文件" class="headerlink" title="3.3 服务端配置文件"></a>3.3 服务端配置文件</h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"extends"</span><span class="token operator">:</span> <span class="token string">"../../tsconfig.json"</span><span class="token punctuation">,</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"outDir"</span><span class="token operator">:</span> <span class="token string">"../../dist/server"</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
   <span class="token property">"references"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"../common"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="4-测试用例配置文件"><a href="#4-测试用例配置文件" class="headerlink" title="4. 测试用例配置文件"></a>4. 测试用例配置文件</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h2 id="3-4-测试用例配置文件"><a href="#3-4-测试用例配置文件" class="headerlink" title="3.4 测试用例配置文件"></a>3.4 测试用例配置文件</h2><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"extends"</span><span class="token operator">:</span> <span class="token string">"../tsconfig.json"</span><span class="token punctuation">,</span>
   <span class="token property">"references"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"../src/client"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"../src/server"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="5-构建"><a href="#5-构建" class="headerlink" title="5. 构建"></a>5. 构建</h3><pre class=" language-bash"><code class="language-bash">tsc -b src/client --verbose // 构建客户端
+<h2 id="3-5-构建"><a href="#3-5-构建" class="headerlink" title="3.5 构建"></a>3.5 构建</h2><pre class=" language-bash"><code class="language-bash">tsc -b src/client --verbose // 构建客户端
 tsc -b src/server --verbose // 构建服务端
 
 tsc -b <span class="token function">test</span> --clean // 清空构建的文件</code></pre>
-<h3 id="6-工程引用优点"><a href="#6-工程引用优点" class="headerlink" title="6. 工程引用优点"></a>6. 工程引用优点</h3><ul>
+<h2 id="3-6-工程引用优点"><a href="#3-6-工程引用优点" class="headerlink" title="3.6 工程引用优点"></a>3.6 工程引用优点</h2><ul>
 <li>解决输出目录结构的问题</li>
 <li>解决了单个工程构建的问题</li>
 <li>通过增量编译提高编译速度</li>
 </ul>
-<h1 id="四、编译工具"><a href="#四、编译工具" class="headerlink" title="四、编译工具"></a>四、编译工具</h1><h3 id="1-如何选择-TypeScript-编译工具？"><a href="#1-如何选择-TypeScript-编译工具？" class="headerlink" title="1. 如何选择 TypeScript 编译工具？"></a>1. 如何选择 TypeScript 编译工具？</h3><ol>
+<h1 id="四、编译工具"><a href="#四、编译工具" class="headerlink" title="四、编译工具"></a>四、编译工具</h1><hr>
+<h2 id="4-1-如何选择-TypeScript-编译工具？"><a href="#4-1-如何选择-TypeScript-编译工具？" class="headerlink" title="4.1 如何选择 TypeScript 编译工具？"></a>4.1 如何选择 TypeScript 编译工具？</h2><ol>
 <li>如果没有使用过 Babel，首选 TypeScript 自生的编译器（可配合 ts-loader 使用）</li>
 <li>如果项目中已经使用了 Babel，安装 @bable/preset-typescript（可配合 tsc 做类型检查）</li>
 <li>两种编译工具不要混用</li>
 </ol>
-<h3 id="2-ts-loader（推荐）"><a href="#2-ts-loader（推荐）" class="headerlink" title="2. ts-loader（推荐）"></a>2. ts-loader（推荐）</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// webpack.base.config.js</span>
+<h2 id="4-2-ts-loader（推荐）"><a href="#4-2-ts-loader（推荐）" class="headerlink" title="4.2 ts-loader（推荐）"></a>4.2 ts-loader（推荐）</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// webpack.base.config.js</span>
 <span class="token keyword">const</span> HtmlWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"html-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> ForkTsCheckerWebpackPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"fork-ts-checker-webpack-plugin"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -595,7 +599,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token keyword">new</span> <span class="token class-name">ForkTsCheckerWebpackPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h3 id="3-awesome-typescript-loader（不推荐）"><a href="#3-awesome-typescript-loader（不推荐）" class="headerlink" title="3. awesome-typescript-loader（不推荐）"></a>3. awesome-typescript-loader（不推荐）</h3><blockquote>
+<h2 id="4-3-awesome-typescript-loader（不推荐）"><a href="#4-3-awesome-typescript-loader（不推荐）" class="headerlink" title="4.3 awesome-typescript-loader（不推荐）"></a>4.3 awesome-typescript-loader（不推荐）</h2><blockquote>
 <p>与 ts-loader 的主要区别：</p>
 <ol>
 <li>更适合与 Babel 集成，使用 Babel 的转义和缓存</li>
@@ -636,7 +640,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token keyword">new</span> <span class="token class-name">CheckerPlugin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h3 id="4-Babel-7"><a href="#4-Babel-7" class="headerlink" title="4. Babel 7+"></a>4. Babel 7+</h3><h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h2 id="4-4-Babel-7"><a href="#4-4-Babel-7" class="headerlink" title="4.4 Babel 7+"></a>4.4 Babel 7+</h2><pre class=" language-json"><code class="language-json">// package.json
+<span class="token punctuation">{</span>
   <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ts-babel-leaning"</span><span class="token punctuation">,</span>
   <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"1.0.0"</span><span class="token punctuation">,</span>
   <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
@@ -658,25 +663,26 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"^3.7.5"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a>tsconfig.json</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<pre class=" language-json"><code class="language-json">// tsconfig.json
+<span class="token punctuation">{</span>
   <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"noEmit"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 与 Babel 混用时，此选项请开启
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="Babel-与-TypeScript-两者结合"><a href="#Babel-与-TypeScript-两者结合" class="headerlink" title="Babel 与 TypeScript 两者结合"></a>Babel 与 TypeScript 两者结合</h4><blockquote>
+<h3 id="4-4-1-Babel-与-TypeScript-两者结合"><a href="#4-4-1-Babel-与-TypeScript-两者结合" class="headerlink" title="4.4.1 Babel 与 TypeScript 两者结合"></a>4.4.1 Babel 与 TypeScript 两者结合</h3><blockquote>
 <p>Babel 只做语言转换<br>TypeScript 只做类型检查</p>
 </blockquote>
-<h4 id="在-Babel-中使用-TypeScript-的注意事项"><a href="#在-Babel-中使用-TypeScript-的注意事项" class="headerlink" title="在 Babel 中使用 TypeScript 的注意事项"></a>在 Babel 中使用 TypeScript 的注意事项</h4><ol>
+<h3 id="4-4-2-在-Babel-中使用-TypeScript-的注意事项"><a href="#4-4-2-在-Babel-中使用-TypeScript-的注意事项" class="headerlink" title="4.4.2 在 Babel 中使用 TypeScript 的注意事项"></a>4.4.2 在 Babel 中使用 TypeScript 的注意事项</h3><ol>
 <li>命名空间在 Babel 中编译会报错，不要使用</li>
 <li>类型断言写法使用 as</li>
 <li>常量枚举，编译报错</li>
 <li>默认导出，编译报错</li>
 </ol>
-<h1 id="五、代码检查工具"><a href="#五、代码检查工具" class="headerlink" title="五、代码检查工具"></a>五、代码检查工具</h1><h2 id="1-ESLint"><a href="#1-ESLint" class="headerlink" title="1. ESLint"></a>1. ESLint</h2><p><img src="https://i.loli.net/2020/06/26/Gp2QmlDX7uWIzKV.jpg" alt="ESLint.jpg"></p>
+<h1 id="五、代码检查工具"><a href="#五、代码检查工具" class="headerlink" title="五、代码检查工具"></a>五、代码检查工具</h1><hr>
+<h2 id="5-1-ESLint"><a href="#5-1-ESLint" class="headerlink" title="5.1 ESLint"></a>5.1 ESLint</h2><p><img src="https://i.loli.net/2020/06/26/Gp2QmlDX7uWIzKV.jpg" alt="ESLint.jpg"></p>
 <p><img src="https://i.loli.net/2020/06/26/AagbK6kjqeBI9FV.jpg" alt="ESLint.jpg"></p>
 <p><img src="https://i.loli.net/2020/06/26/HfmKGColOe4rAwJ.jpg" alt="ESLint.jpg"></p>
-<h2 id="2-如何在-TypesSript-中使用-ESLint"><a href="#2-如何在-TypesSript-中使用-ESLint" class="headerlink" title="2. 如何在 TypesSript 中使用 ESLint"></a>2. 如何在 TypesSript 中使用 ESLint</h2><h3 id="package-json-1"><a href="#package-json-1" class="headerlink" title="package.json"></a>package.json</h3><p>需要安装这两个插件</p>
-<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h2 id="5-2-如何在-TypesSript-中使用-ESLint"><a href="#5-2-如何在-TypesSript-中使用-ESLint" class="headerlink" title="5.2 如何在 TypesSript 中使用 ESLint"></a>5.2 如何在 TypesSript 中使用 ESLint</h2><h3 id="5-2-1-安装-ESLint-模块"><a href="#5-2-1-安装-ESLint-模块" class="headerlink" title="5.2.1 安装 ESLint 模块"></a>5.2.1 安装 ESLint 模块</h3><h4 id="在-package-json-文件中"><a href="#在-package-json-文件中" class="headerlink" title="在 package.json 文件中"></a>在 package.json 文件中</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"eslint src --ext .js,.ts"</span> // 检查 .js .ts 文件
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -685,7 +691,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token property">"@typescript-eslint/parser"</span><span class="token operator">:</span> <span class="token string">"^2.19.0"</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="eslintrc-json"><a href="#eslintrc-json" class="headerlink" title=".eslintrc.json"></a>.eslintrc.json</h3><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h4 id="在-eslintrc-json-文件中"><a href="#在-eslintrc-json-文件中" class="headerlink" title="在 .eslintrc.json 文件中"></a>在 .eslintrc.json 文件中</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"parser"</span><span class="token operator">:</span> <span class="token string">"@typescript-eslint/parser"</span><span class="token punctuation">,</span>
   <span class="token property">"plugins"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"@typescript-eslint"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token property">"parserOptions"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -696,7 +702,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token property">"@typescript-eslint/no-inferrable-types"</span><span class="token operator">:</span> <span class="token string">"off"</span> // 关闭禁止显示的声明ts类型
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="3-安装-VSCode-ESLint-插件"><a href="#3-安装-VSCode-ESLint-插件" class="headerlink" title="3. 安装 VSCode ESLint 插件"></a>3. 安装 VSCode ESLint 插件</h3><h4 id="setting-json"><a href="#setting-json" class="headerlink" title="setting.json"></a>setting.json</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+<h3 id="5-2-2-安装-VSCode-ESLint-插件"><a href="#5-2-2-安装-VSCode-ESLint-插件" class="headerlink" title="5.2.2 安装 VSCode ESLint 插件"></a>5.2.2 安装 VSCode ESLint 插件</h3><h4 id="在-setting-json-文件中"><a href="#在-setting-json-文件中" class="headerlink" title="在 setting.json 文件中"></a>在 setting.json 文件中</h4><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"eslint.autoFixOnSave"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   <span class="token property">"eslint.validate"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token string">"javascript"</span><span class="token punctuation">,</span>
@@ -715,7 +721,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span></code></pre>
-<h2 id="4-babel-eslint-与-typescript-eslint"><a href="#4-babel-eslint-与-typescript-eslint" class="headerlink" title="4. babel-eslint 与 typescript-eslint"></a>4. babel-eslint 与 typescript-eslint</h2><ul>
+<h2 id="5-3-babel-eslint-与-typescript-eslint"><a href="#5-3-babel-eslint-与-typescript-eslint" class="headerlink" title="5.3 babel-eslint 与 typescript-eslint"></a>5.3 babel-eslint 与 typescript-eslint</h2><ul>
 <li>babel-eslint: 支持 TypeScript 没有的额外的语法检查，抛弃 TypeScript，不支持类型检查</li>
 <li>typescript-eslint：基于 TypeScript 的 AST，支持创建基于类型信息的规则（tsconfig.json）</li>
 </ul>
@@ -1492,7 +1498,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         class="fas fa-chart-area"
       ></i
       >&nbsp;站点总字数:&nbsp;<span class="white-color"
-        >6.7k</span
+        >6.9k</span
       >&nbsp;字      
       <span id="busuanzi_container_site_pv">
         |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
