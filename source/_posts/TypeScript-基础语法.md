@@ -14,7 +14,9 @@ categories: 前端
 keywords: typescript,typescript中文教程,typescript语法,typescript enum,typescript array,typescript interface
 ---
 
-# 1. 开始一个项目
+# 一、开始一个项目
+
+---
 
 ```bash
 # 初始化项目
@@ -46,12 +48,14 @@ npm i webpack-merge -D
 
 ```json
 "scripts": {
-    "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js", // 开发环境启动脚本
-    "build": "webpack --mode=product --config ./build/webpack.config.js" // 构建生产环境脚本
+  "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js", // 开发环境启动脚本
+  "build": "webpack --mode=product --config ./build/webpack.config.js" // 构建生产环境脚本
 }
 ```
 
-# 2. TS 基础类型
+# 二、TS 数据类型对比 ES6 数据类型
+
+---
 
 | ES6 的数据类型 | TypeScript 的数据类型 |
 | -------------- | --------------------- |
@@ -71,9 +75,9 @@ npm i webpack-merge -D
 |                | **枚举**              |
 |                | **高级类型**          |
 
-## 类型注解
+# 三、基本类型
 
-### 基本类型
+---
 
 ```typescript
 // 原始类型
@@ -95,8 +99,6 @@ tuple[2]; //  ERROR：无法访问
 let add = (x: number, y: number): number => x + y;
 // 函数定义
 let compute: (x: number, y: number) => number;
-
-(compute = (a, b) => a), b;
 
 // 对象
 let obj: object = { x: 1, y: 2 };
@@ -136,7 +138,7 @@ let endless = () => {
 };
 ```
 
-### 枚举类型
+### 2. 枚举类型
 
 ```typescript
 // 数字枚举
@@ -208,9 +210,11 @@ let g1: G = G.b;
 let g2: G.a = G.a;
 ```
 
-# 3. 接口类型
+# 四、接口类型
 
-## 对象类型接口
+---
+
+## 1. 对象类型接口
 
 ```typescript
 // 定义接口 List
@@ -256,8 +260,6 @@ render({
   ],
 }); // ERROR：如果直接传入对象自变量，TS则会对额外的字段进行类型检查
 ```
-
----
 
 ### 有三种绕过方式
 
@@ -353,7 +355,7 @@ foo["a"] = { abc: "some message" };
 
 节选自：[深入理解 TypeScript - 索引签名](https://jkchao.github.io/typescript-book-chinese/typings/indexSignatures.html#typescript-%E7%B4%A2%E5%BC%95%E7%AD%BE%E5%90%8D)
 
-## 函数类型接口
+## 2. 函数类型接口
 
 ### 声明
 
@@ -440,9 +442,11 @@ console.log(add(1, 2, 3)); // 6
 console.log(add("a", "b", "c")); // "abc"
 ```
 
-# 4. 类
+# 六、类
 
-## 基本知识
+---
+
+## 1. 基本知识
 
 ```typescript
 class Dog {
@@ -481,9 +485,7 @@ console.log(Husky.food); // 'bones'
 > 构造函数设置为 protected，说明这个类只能被继承，而不能被实例化。
 > 构造函数设置为 private，说明这个类不能被继承，不能被实例化。
 
-## 抽象类
-
-### 多态特性
+## 2. 抽象类——多态特性
 
 ```typescript
 abstract class Animal {
@@ -525,7 +527,7 @@ animals.forEach((i) => {
 });
 ```
 
-### 链式调用
+## 3. 链式调用
 
 ```typescript
 class WorkFlow {
@@ -548,11 +550,13 @@ class MyFlow extends WorkFlow {
 new MyFlow().next().step1().step2(); // ok
 ```
 
-## 类与接口的关系
+# 七、类与接口的关系
+
+---
 
 ![类与接口的关系.jpg](https://i.loli.net/2020/06/26/doJnDwsM3qIr7O1.jpg)
 
-### 接口只能约束类的公有成员
+## 1. 接口只能约束类的公有成员
 
 ```typescript
 interface Human {
@@ -570,7 +574,7 @@ class Asian implements Human {
 }
 ```
 
-### 一个类类型接口可以继承多个接口
+## 2. 一个类类型接口可以继承多个接口
 
 ```typescript
 interface Man extends Human {
@@ -591,7 +595,7 @@ let boy: Boy = {
 };
 ```
 
-### 接口继承类
+## 3. 接口继承类
 
 ```typescript
 class Auto {
@@ -605,9 +609,11 @@ class C implements AutoInterface {
 }
 ```
 
-# 5. 泛型
+# 八、泛型
 
-## 泛型函数与泛型接口
+---
+
+## 1. 泛型函数与泛型接口
 
 ```typescript
 // 泛型函数
@@ -628,7 +634,7 @@ interface Log<T = string> {
 }
 ```
 
-## 泛型类与泛型约束
+## 2. 泛型类与泛型约束
 
 ```typescript
 // 泛型类
@@ -670,15 +676,17 @@ log("123");
 log({ length: 1 });
 ```
 
-## 泛型的好处
+## 3. 泛型的好处
 
 1. 函数和类可以轻松地支持多种类型，增强程序的拓展性
 2. 不必写多条函数重载，冗长的联合类型声明，增强代码可读性
 3. 灵活控制类型之前的约束
 
-# 6. 类型检查机制
+# 九、类型检查机制
 
-## 自动类型推断
+---
+
+## 1. 自动类型推断
 
 ```typescript
 let a = 1; // 自动推断a为number
@@ -686,15 +694,14 @@ let a = 1; // 自动推断a为number
 let b = [1, null]; // 自动推断 b 为 []any
 ```
 
-## 类型兼容性
+## 2. 类型兼容性
 
-当一个类型 Y 可以被赋值给另一个类型 X 时，我们就可以说类型 X 兼容类型 Y
+##### 当一个类型 Y 可以被赋值给另一个类型 X 时，我们就可以说类型 X 兼容类型 Y X 兼容 Y : X (目标类型) = Y（源类型）
 
-X 兼容 Y : X (目标类型) = Y（源类型）
+##### 口诀：
 
-口诀：
-结构之间兼容：成员少的兼容成员多的
-函数之前兼容：参数多的兼容参数少的
+1. 结构之间兼容：成员少的兼容成员多的
+2. 函数之间兼容：参数多的兼容参数少的
 
 ### 变量兼容性
 
@@ -724,7 +731,7 @@ x = y; // ok
 // y = x; // Error 不兼容
 ```
 
-**结论：属性少的兼容属性多的**
+> 结论：属性少的兼容属性多的
 
 ### 函数兼容性
 
@@ -880,7 +887,7 @@ let log2 = <U>(y: U): U => {
 log1 = log2;
 ```
 
-## 类型保护机制
+## 3. 类型保护机制
 
 TypeScript 能够在特定的区块中保证变量属于某种确定的类型。
 可以在此区块中放心地引用此类型的属性，或调用此类型的方法。
@@ -953,9 +960,11 @@ enum Type { Strong, Week }
  getLanguage(Type.Strong);
 ```
 
-# 7. 高级类型
+# 十、高级类型
 
-## 交叉类型与联合类型
+---
+
+## 1. 交叉类型与联合类型
 
 交叉类型：适合做对象混入
 联合类型：类型具有不确定性，增强代码的灵活性
@@ -1037,7 +1046,7 @@ function area(s: Shape) {
 }
 ```
 
-## 索引类型
+## 2. 索引类型
 
 ```typescript
 let obj = {
@@ -1066,7 +1075,7 @@ console.log(getValues(obj, ["a", "b"])); // OK
 // console.log(getValues(obj, ['e', 'f'])); // Error
 ```
 
-## 映射类型
+## 3. 映射类型
 
 ```typescript
 interface Obj {
@@ -1084,7 +1093,7 @@ type PickObj = Pick<Obj, "a" | "b">;
 type RecordObj = Record<"x" | "y", Obj>;
 ```
 
-## 条件类型
+## 4. 条件类型
 
 ```typescript
 // T extends U ? X : Y
@@ -1122,15 +1131,18 @@ type T5 = NotNull<string | number | undefined | null>;
 type Y7 = ReturnType<() => stringn>;
 ```
 
-# 8. ES6 与 CommonJS 的模块系统
+# 十一、ES6 与 CommonJS 的模块系统
 
-两种模式不要混用
+---
 
-## ES6
+#### 两种模式不要混用
 
-## CommonJS
+1. ES6
+2. CommonJS
 
-# 9. 命名空间
+# 十二、命名空间
+
+---
 
 ```typescript
 // a.ts
@@ -1142,7 +1154,6 @@ namespace Shape {
 }
 
 // b.ts
-
 /**
  * 下面是三斜线指令
  * 在 b.ts 调用 a.ts 的 cricle 方法 必须加上此指令
@@ -1168,9 +1179,11 @@ import cricle = Shape.cricle;
 console.log(cricle(1)); // 3.14
 ```
 
-# 10. 声明合并
+# 十三、声明合并
 
-## 接口合并
+---
+
+## 1. 接口合并
 
 ```typescript
 /**
@@ -1202,7 +1215,7 @@ let a: A = {
 };
 ```
 
-## 函数与命名空间合并
+## 2. 函数与命名空间合并
 
 ```typescript
 function Lib() {}
@@ -1212,7 +1225,7 @@ namespace Lib {
 console.log(Lib.version); // 1.0
 ```
 
-## 类与命名空间合并
+## 3. 类与命名空间合并
 
 ```typescript
 class C {}
@@ -1222,7 +1235,7 @@ namespace C {
 console.log(C.state); // 1
 ```
 
-## 枚举与命名空间合并
+## 4. 枚举与命名空间合并
 
 ```typescript
 enum Color {
@@ -1247,18 +1260,22 @@ console.log(Color);
  */
 ```
 
-# 11. 如何编写声明文件
+# 十四、如何编写声明文件
+
+---
 
 引入第三方类库并为它们编写声明文件
 类库分为三种：
 
-- 全局类库
-- 模块类库
-- umd 类库
+1. 全局类库
+2. 模块类库
+3. umd 类库
 
-## 引入 jQuery
+# 十五、引入 jQuery
 
-1. 安装
+---
+
+## 1. 安装
 
 ```cmd
 npm i jquery
@@ -1268,18 +1285,20 @@ npm i @types/jquery -D
 大多数类库都会提供声明文件
 可以上 [TypeSearch](microsoft.github.io/TypeSearch) 去查找社区有没有为类库提供声明文件
 
-2. 使用
+## 2. 使用
 
 ```typescript
 import $ from "jquery";
 $(".app").css("color", "red");
 ```
 
-#### 如何自己编写一个声明文件
+# 十六、如何自己编写一个声明文件
 
-可以参考此网站 [Definitely Typed](definitelytyped.org/guides/contributing.html)
+---
 
-### 全局库
+> 可以参考此网站 [Definitely Typed](definitelytyped.org/guides/contributing.html)
+
+## 1. 全局库
 
 ```typescript
 // global-lib.js
@@ -1309,7 +1328,7 @@ console.log(globalLib({ x: 1 }));
 console.log(globalLib.doSomething());
 ```
 
-### 模块库
+## 2. 模块库
 
 ```typescript
 // module-lib.js
@@ -1345,9 +1364,9 @@ import moduleLib from "./module-lib.js";
 console.log(moduleLib.doSomething());
 ```
 
-### umd 库
+## 3. umd 库
 
-tsconfig 默认不允许 umd 使用全局引用方式，若如果想通过全局引用，则需要打开设置 "allowUmdGlobalAccess": true
+##### tsconfig 默认不允许 umd 使用全局引用方式，若如果想通过全局引用，则需要打开设置 "allowUmdGlobalAccess": true
 
 ```typescript
 // umd-lib.js
@@ -1378,15 +1397,14 @@ export as namespace umdLib;
 export = umdLib;
 
 // example.ts 使用示范
-
 import umdLib from "./umd-lib.js";
 
 console.log(umdLib.doSomething());
 ```
 
-## 给类库添加自定义方法
+## 4. 给类库添加自定义方法
 
-### moment 库
+##### 这里以 moment 为例
 
 ```typescript
 import m from "moment";
@@ -1398,17 +1416,17 @@ declare module "moment" {
 m.myFunction = () => {};
 ```
 
-## 声明文件的依赖
+## 5. 声明文件的依赖
 
-### jquery
+##### 这里以 jQuery 为例
 
-> /node_modules/@types/jquery/package.json
+###### /node_modules/@types/jquery/package.json
 
 ```json
 "types": "index"
 ```
 
-> /node_modules/@types/jquery/index.d.js
+###### /node_modules/@types/jquery/index.d.js
 
 ```typescript
 /// <reference types="sizzle" />
