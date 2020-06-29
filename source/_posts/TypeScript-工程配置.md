@@ -2,7 +2,7 @@
 title: TypeScript 工程配置
 author: Oliver
 top: false
-cover: false
+cover: true
 toc: false
 mathjax: false
 date: 2020-06-26 22:16:32
