@@ -4,7 +4,7 @@ author: Oliver
 img: https://i.loli.net/2020/06/26/FXahC9M3wfxZtjO.jpg
 top: false
 cover: true
-toc: false
+toc: true
 mathjax: false
 date: 2020-06-26 21:36:33
 password:
@@ -15,8 +15,6 @@ keywords: typescript,typescript中文教程,typescript语法,typescript enum,typ
 ---
 
 # 一、开始一个项目
-
----
 
 ## 1.1 安装模块
 
