@@ -11,7 +11,7 @@ password:
 summary:
 tags: LeetCode
 categories: 算法
-keywords: 算法,leetcode,两数之和,leetcode 两数之和
+keywords: 算法,javascript,leetcode,两数之和,leetcode 两数之和
 ---
 
 # 一、题目描述
@@ -31,19 +31,24 @@ keywords: 算法,leetcode,两数之和,leetcode 两数之和
 
 语言：javascript
 
+思路：遍历 `nums`，用 `target` 数值与数组 `nums` 中每个数值相减获得到另一个数值，如果这个数值刚好存在`nums` 中，则返回。
+
 ```js
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-function (nums, target) {
-  for (var i = 0; i < nums.length; i++) {
-    for (var j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        return [i, j];
-      }
+const twoSum = function (nums, target) {
+  // 遍历 `nums` 数组
+  for (let i = 0; i < nums.length; i++) {
+    // 求目标减去当前索引的数值
+    let disc = target - nums[i];
+    // 查找 `nums` 数组中是否存在这个值
+    let idx = nums.indexOf(disc);
+    if (idx !== i && idx >= 0) {
+      return [i, nums.indexOf(disc)];
     }
   }
-}
+};
 ```
