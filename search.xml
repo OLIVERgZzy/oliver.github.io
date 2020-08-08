@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>我的LeetCode之旅「除数博弈」</title>
+      <link href="/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/"/>
+      <url>/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。</p><p>最初，黑板上有一个数字  N 。在每个玩家的回合，玩家需要执行以下操作：</p><p>选出任一  x，满足  0 &lt; x &lt; N 且  N % x == 0 。<br>用 N - x  替换黑板上的数字 N 。<br>如果玩家无法执行这些操作，就会输掉游戏。</p><p>只有在爱丽丝在游戏中取得胜利时才返回  True，否则返回 False。假设两个玩家都以最佳状态参与游戏。</p><h1 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h1><p>示例 1:</p><blockquote><p>输入：2<br>输出：true<br>解释：爱丽丝选择 1，鲍勃无法进行操作。</p></blockquote><p>示例 2:</p><blockquote><p>输入：3<br>输出：false<br>解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。</p></blockquote><h1 id="三、解题"><a href="#三、解题" class="headerlink" title="三、解题"></a>三、解题</h1><p>语言：javascript</p><p>思路：爱丽丝拿到偶数必定胜利、拿到奇数必定失败</p><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/** * @param {number} N * @return {boolean} */</span><span class="token keyword">var</span> divisorGame <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">return</span> N <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LeetCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的LeetCode之旅「两数相加」</title>
       <link href="/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/"/>
       <url>/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/</url>
@@ -135,7 +160,7 @@
       <link href="/wo-de-di-yi-pian-bo-ke/"/>
       <url>/wo-de-di-yi-pian-bo-ke/</url>
       
-        <content type="html"><![CDATA[<p>2007187244955281</p><p>今天是端午假期的第二个休息日，早上拖着慵懒的身体从床上爬下来，从冰箱里随手拿了一个红豆沙馅的粽子，丢进了微波炉，就去刷牙洗脸了。吃完粽子，舔了舔嘴角遗留的糯米粒，习惯性地往电脑前一坐，开启了一天的宅家模式。</p><p>我打开了油管，手指在触控板上不停的滑动着，突然一个 “挑战 15 分钟内完成一个贪吃蛇游戏” 吸引了我的注意力。点进去一看是个老外，他熟练的使用 javascript 在电脑面前敲着，一边激情地敲代码，一边用夸张地肢体动作配合着搞怪的表情，生动的讲解着他的思路，英语 3 级不到的我，一脸懵逼，还好油管自带翻译功能救了我一命。老外用的原生 js 语法和 p5.js，可能有小伙伴就会问了 p5.js 是什么？其实我也不知道，大家有兴趣可以去了解一下。于是我谷歌了一下，找到一个知乎大佬的文章。内容就是————让艺术家、设计师、教育工作者和初学者等都能够进行编码，并且是为现代 web 重新打造。它有着完整的一套作画功能，但并不意味着你能做的只是在 canvas 上画画。事实上，你可以把整个浏览器都当成你的“画布”，利用插件库你可以很方便地与其他 html5 元素（如文本，输入框，视频，摄像头和音频）进行交互。感觉国内挺冷门的，不过做一些小游戏、小动画什么的好像很方便。</p><p>看着看着不一会老外就完成了挑战，一个简易的贪吃蛇小游戏就这么完成了，看得我手很是痒痒，总想干点什么。于是了解到 hexo 这个博客框架，身为前端工程师的我，这还不分分钟搞定？等搭建好之后，写点技术文章、读书笔记或者一些随笔也是再好不过的。正好最近买了很多技术书籍，等我一本一本的把书中的精华吸收之后，并且用精妙的文字总结写下！我大腿一拍，好！以后要坚持写博客！</p>]]></content>
+        <content type="html"><![CDATA[<!-- 2007187244955281 --><p>今天是端午假期的第二个休息日，早上拖着慵懒的身体从床上爬下来，从冰箱里随手拿了一个红豆沙馅的粽子，丢进了微波炉，就去刷牙洗脸了。吃完粽子，舔了舔嘴角遗留的糯米粒，习惯性地往电脑前一坐，开启了一天的宅家模式。</p><p>我打开了油管，手指在触控板上不停的滑动着，突然一个 “挑战 15 分钟内完成一个贪吃蛇游戏” 吸引了我的注意力。点进去一看是个老外，他熟练的使用 javascript 在电脑面前敲着，一边激情地敲代码，一边用夸张地肢体动作配合着搞怪的表情，生动的讲解着他的思路，英语 3 级不到的我，一脸懵逼，还好油管自带翻译功能救了我一命。老外用的原生 js 语法和 p5.js，可能有小伙伴就会问了 p5.js 是什么？其实我也不知道，大家有兴趣可以去了解一下。于是我谷歌了一下，找到一个知乎大佬的文章。内容就是————让艺术家、设计师、教育工作者和初学者等都能够进行编码，并且是为现代 web 重新打造。它有着完整的一套作画功能，但并不意味着你能做的只是在 canvas 上画画。事实上，你可以把整个浏览器都当成你的“画布”，利用插件库你可以很方便地与其他 html5 元素（如文本，输入框，视频，摄像头和音频）进行交互。感觉国内挺冷门的，不过做一些小游戏、小动画什么的好像很方便。</p><p>看着看着不一会老外就完成了挑战，一个简易的贪吃蛇小游戏就这么完成了，看得我手很是痒痒，总想干点什么。于是了解到 hexo 这个博客框架，身为前端工程师的我，这还不分分钟搞定？等搭建好之后，写点技术文章、读书笔记或者一些随笔也是再好不过的。正好最近买了很多技术书籍，等我一本一本的把书中的精华吸收之后，并且用精妙的文字总结写下！我大腿一拍，好！以后要坚持写博客！</p>]]></content>
       
       
       <categories>
