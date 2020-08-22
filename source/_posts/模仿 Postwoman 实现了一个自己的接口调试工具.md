@@ -30,21 +30,24 @@ keywords: api-client, request-client, axios, postman, postwoman, nuxt, vue, vuej
 
 # 3. 技术栈
 
-1. vue
-2. nuxt
-3. axios
+1. Vue
+2. Nuxt
+3. Axios
+4. Travis CI
 
 # 4. 功能清单
 
-- [x] 基本请求 GET, HEAD, POST, PUT, DELETE, OPTIONS, PATCH
-- [x] 历史记录(vuex 实现)
-- [ ] WebSocket
-- [ ] Socket.IO
-- [ ] 界面主题色切换
-- [ ] 授权登录(为了储存历史记录和收藏夹)
-- [ ] 收藏夹功能
-- [ ] gRPC 请求
+- ✅ 基本请求 GET, HEAD, POST, PUT, DELETE, OPTIONS, PATCH
+- ✅ 历史记录(vuex 实现)
+- ⌛ WebSocket
+- ⌛ SocketIO
+- ⌛ gRPC
+- ⌛ GraphQL
+- ⌛ 界面主题色切换
+- ⌛ 授权登录(为了储存历史记录和收藏夹)
+- ⌛ 收藏夹功能
 
 # 5. 体验地址
 
 最后再发一下体验地址: [http://postchild.io](http://postchild.io)
+……
