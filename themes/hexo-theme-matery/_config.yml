@@ -133,10 +133,10 @@ indexbtn:
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
   github: https://github.com/OLIVERgZzy
-  email: 810982048@qq.com
+  email: zzy810982048@gmail.com
   facebook: # https://www.facebook.com/xxx
-  twitter: # https://twitter.com/xxx
-  qq: 810982048
+  twitter: https://twitter.com/postchildio
+  qq: # 810982048
   weibo: # https://weibo.com/xxx
   zhihu: # https://www.zhihu.com/xxx
   rss: true # true、false
@@ -211,13 +211,13 @@ profile:
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
-  enable: false
+  enable: true
   data:
-    typora-vue-theme:
+    postchild:
       icon: fas fa-file-alt
       iconBackground: "linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)"
-      url: https://github.com/blinkfox/typora-vue-theme
-      desc: This is a typora theme inspired by Vue document style.
+      url: https://github.com/OLIVERgZzy/postchild
+      desc: Imitated Postman and built a free and beautiful API request building tool to help you develop and test more efficiently. 模仿 Postman，搭建了一个免费好看的 API 请求构建工具，帮助您更高效的开发和测试.
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
