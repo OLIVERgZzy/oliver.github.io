@@ -1,7 +1,7 @@
 ---
 title: TypeScript 基础语法
 author: Oliver
-img: https://i.loli.net/2020/06/26/FXahC9M3wfxZtjO.jpg
+img: /images/FXahC9M3wfxZtjO.jpg
 top: false
 cover: true
 toc: true

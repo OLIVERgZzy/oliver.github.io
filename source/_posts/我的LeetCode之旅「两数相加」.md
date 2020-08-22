@@ -6,7 +6,7 @@ cover: false
 toc: false
 mathjax: false
 date: 2020-07-05 17:10:07
-img: https://i.loli.net/2020/07/02/iuLe93nYpIaKVvN.jpg
+img: /images/iuLe93nYpIaKVvN.jpg
 password:
 summary:
 tags: LeetCode

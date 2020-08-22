@@ -6,7 +6,7 @@ cover: true
 toc: true
 mathjax: false
 date: 2020-06-26 22:16:32
-img: https://i.loli.net/2020/06/26/FXahC9M3wfxZtjO.jpg
+img: /images/FXahC9M3wfxZtjO.jpg
 password:
 summary: TypeScript 工程化配置入门
 tags: TypeScript
