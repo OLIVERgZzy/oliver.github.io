@@ -6,7 +6,7 @@ cover: true
 toc: false
 mathjax: false
 date: 2020-08-22 23:30:43
-img: /images/WX20200822-223911@2x/png
+img: /images/WX20200822-223911@2x.png
 password:
 summary:
 tags:
