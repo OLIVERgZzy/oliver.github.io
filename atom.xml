@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://manito.fun/"/>
-  <updated>2020-08-22T12:46:57.471Z</updated>
+  <updated>2020-08-22T12:54:57.788Z</updated>
   <id>http://manito.fun/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/</id>
     <published>2020-08-08T05:19:07.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
@@ -49,7 +49,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/</id>
     <published>2020-07-05T09:10:07.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
@@ -76,7 +76,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-zhi-he/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-zhi-he/</id>
     <published>2020-07-02T02:08:05.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
@@ -103,7 +103,7 @@
     <link href="http://manito.fun/shi-me-shi-zuo-yong-yu/"/>
     <id>http://manito.fun/shi-me-shi-zuo-yong-yu/</id>
     <published>2020-06-29T15:30:43.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
@@ -121,6 +121,8 @@
     
       <category term="前端" scheme="http://manito.fun/categories/%E5%89%8D%E7%AB%AF/"/>
     
+      <category term="读书笔记" scheme="http://manito.fun/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
     
       <category term="JavaScript" scheme="http://manito.fun/tags/JavaScript/"/>
     
@@ -133,7 +135,7 @@
     <link href="http://manito.fun/typescript-gong-cheng-pei-zhi/"/>
     <id>http://manito.fun/typescript-gong-cheng-pei-zhi/</id>
     <published>2020-06-26T14:16:32.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
@@ -161,7 +163,7 @@
     <link href="http://manito.fun/typescript-ji-chu-yu-fa/"/>
     <id>http://manito.fun/typescript-ji-chu-yu-fa/</id>
     <published>2020-06-26T13:36:33.000Z</published>
-    <updated>2020-08-22T12:46:57.471Z</updated>
+    <updated>2020-08-22T12:54:57.788Z</updated>
     
     <summary type="html">
     
