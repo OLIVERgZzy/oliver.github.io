@@ -12,10 +12,11 @@ summary:
 tags:
   - Nuxt
   - Vue
+  - Http协议
 categories:
   - 前端
   - 我的项目
-keywords: api-client, request-client, postman, postwoman, nuxt, vue, vuejs, nuxtjs, 代替postman, 接口测试, 接口调试, API测试, 接口调试工具
+keywords: api-client, request-client, axios, postman, postwoman, nuxt, vue, vuejs, nuxtjs, 代替postman, 接口测试, 接口调试, API测试, 接口调试工具
 ---
 
 # 1. 前言
@@ -25,12 +26,13 @@ keywords: api-client, request-client, postman, postwoman, nuxt, vue, vuejs, nuxt
 # 2. 动机
 
 出于学习的目的，我也模仿开发了一个精简版接口测试工具并起名为 [postchild](http://postchild.io)。
-既然是学习的目的，在此次项目中我会尽可能的减少第三方库的使用，尽量靠自己写代码去实现。在过程，也是一种对知识的查漏补缺，尤其是我对通讯、网络协议这方面的不足。下面将会简单介绍一下运用到的技术栈和对未来打算实现的功能。
+既然是学习的目的，在此次项目中我会尽可能的减少第三方库的使用，尽量靠自己写代码去实现。在过程，也是一种对知识的查漏补缺，尤其是我对 web 通讯、http 协议这方面的不足。下面将会简单介绍一下运用到的技术栈和对未来打算实现的功能。
 
 # 3. 技术栈
 
 1. vue
 2. nuxt
+3. axios
 
 # 4. 功能清单
 
@@ -42,3 +44,7 @@ keywords: api-client, request-client, postman, postwoman, nuxt, vue, vuejs, nuxt
 - [ ] 授权登录(为了储存历史记录和收藏夹)
 - [ ] 收藏夹功能
 - [ ] gRPC 请求
+
+# 5. 体验地址
+
+最后再发一下体验地址: [http://postchild.io](http://postchild.io)
