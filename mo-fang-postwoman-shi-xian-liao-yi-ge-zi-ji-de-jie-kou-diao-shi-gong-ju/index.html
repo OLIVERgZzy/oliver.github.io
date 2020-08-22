@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法,javascript,leetcode,两数相加,leetcode 两数相加">
+    <meta name="keywords" content="api-client, request-client, postman, postwoman, nuxt, vue, vuejs, nuxtjs, 代替postman, 接口测试, 接口调试, API测试, 接口调试工具">
     <meta name="description" content="享受编程和技术所带来的快乐 - Enjoy Coding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>我的LeetCode之旅「两数相加」 | Oliver&#39;s Blog</title>
+    <title>模仿 Postwoman 实现了一个自己的接口调试工具 | Oliver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/iuLe93nYpIaKVvN.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/WX20200822-223911@2x/png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">我的LeetCode之旅「两数相加」</h1>
+                    <h1 class="description center-align post-title">模仿 Postwoman 实现了一个自己的接口调试工具</h1>
                 </div>
             </div>
         </div>
@@ -360,8 +360,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LeetCode/">
-                                <span class="chip bg-color">LeetCode</span>
+                            <a href="/tags/Nuxt/">
+                                <span class="chip bg-color">Nuxt</span>
+                            </a>
+                        
+                            <a href="/tags/Vue/">
+                                <span class="chip bg-color">Vue</span>
                             </a>
                         
                     </div>
@@ -372,8 +376,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                我的项目
                             </a>
                         
                     </div>
@@ -385,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-05
+                    2020-08-22
                 </div>
                 
 
@@ -399,7 +407,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    359
+                    288
                 </div>
                 
 
@@ -421,42 +429,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>给出两个   非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照   逆序   的方式存储的，并且它们的每个节点只能存储   一位   数字。</p>
-<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
-<p>您可以假设除了数字 0 之外，这两个数都不会以 0  开头。</p>
-<h1 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h1><blockquote>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
-</blockquote>
-<h1 id="三、解题"><a href="#三、解题" class="headerlink" title="三、解题"></a>三、解题</h1><p>语言：javascript</p>
-<p>思路：循环两个链表，挨个取出其中的 val，同时组装成一个链表的数据结构。</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */</span>
-<span class="token keyword">const</span> addTwoNumbers <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>l1<span class="token punctuation">,</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> carry <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 是否需要进位</span>
-  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token punctuation">(</span>next <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 最终返回的结果</span>
-  <span class="token comment" spellcheck="true">// 循环，直到 l1 和 l2 同时为 null</span>
-  <span class="token keyword">while</span> <span class="token punctuation">(</span>l1 <span class="token operator">||</span> l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> v <span class="token operator">=</span> carry <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 本轮的计算相加的变量 v（上一轮需要进位，所以可能初始值为1）</span>
-    carry <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 重置</span>
-    <span class="token comment" spellcheck="true">// 如果 l1 不为空，v 追加 l1.val，同时将 l1.next 覆盖当前作用域的 l1</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>l1<span class="token punctuation">)</span> <span class="token punctuation">(</span>v <span class="token operator">+</span><span class="token operator">=</span> l1<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>l1 <span class="token operator">=</span> l1<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// 同上</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>l2<span class="token punctuation">)</span> <span class="token punctuation">(</span>v <span class="token operator">+</span><span class="token operator">=</span> l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>l2 <span class="token operator">=</span> l2<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    next<span class="token punctuation">.</span>val <span class="token operator">=</span> v <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 取余数</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">>=</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token comment" spellcheck="true">// 因为本轮计算结果大于等于10，需要进位</span>
-      <span class="token comment" spellcheck="true">// 所以将下一个链表中值修改成 1</span>
-      next <span class="token operator">=</span> next<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token punctuation">{</span> val<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-      carry <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-      next <span class="token operator">=</span> next<span class="token punctuation">.</span>next <span class="token operator">=</span> l1 <span class="token operator">||</span> l2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+                <h1 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h1><p>想必大家平日里开发接口，或多或少都用过 postman 这款接口测试工具，应该都对他不陌生。近日偶然发现一款 web 版接口测试工具并且免费开源。对，它就是 <a href="https://postwoman.io/" target="_blank" rel="noopener">postwoman</a>，清爽帅气的 UI 界面，强大的功能，相对 postman 丝毫不逊色，令我啧啧称赞。</p>
+<h1 id="2-动机"><a href="#2-动机" class="headerlink" title="2. 动机"></a>2. 动机</h1><p>出于学习的目的，我也模仿开发了一个精简版接口测试工具并起名为 <a href="http://postchild.io" target="_blank" rel="noopener">postchild</a>。<br>既然是学习的目的，在此次项目中我会尽可能的减少第三方库的使用，尽量靠自己写代码去实现。在过程，也是一种对知识的查漏补缺，尤其是我对通讯、网络协议这方面的不足。下面将会简单介绍一下运用到的技术栈和对未来打算实现的功能。</p>
+<h1 id="3-技术栈"><a href="#3-技术栈" class="headerlink" title="3. 技术栈"></a>3. 技术栈</h1><ol>
+<li>vue</li>
+<li>nuxt</li>
+</ol>
+<h1 id="4-功能清单"><a href="#4-功能清单" class="headerlink" title="4. 功能清单"></a>4. 功能清单</h1><ul>
+<li><input checked="" disabled="" type="checkbox"> 基本请求 GET, HEAD, POST, PUT, DELETE, OPTIONS, PATCH</li>
+<li><input checked="" disabled="" type="checkbox"> 历史记录(vuex 实现)</li>
+<li><input disabled="" type="checkbox"> WebSocket</li>
+<li><input disabled="" type="checkbox"> Socket.IO</li>
+<li><input disabled="" type="checkbox"> 界面主题色切换</li>
+<li><input disabled="" type="checkbox"> 授权登录(为了储存历史记录和收藏夹)</li>
+<li><input disabled="" type="checkbox"> 收藏夹功能</li>
+<li><input disabled="" type="checkbox"> gRPC 请求</li>
+</ul>
 
             </div>
             <hr/>
@@ -482,7 +470,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/">http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/</a>
+                    <a href="http://manito.fun/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/">http://manito.fun/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -520,8 +508,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LeetCode/">
-                                    <span class="chip bg-color">LeetCode</span>
+                                <a href="/tags/Nuxt/">
+                                    <span class="chip bg-color">Nuxt</span>
+                                </a>
+                            
+                                <a href="/tags/Vue/">
+                                    <span class="chip bg-color">Vue</span>
                                 </a>
                             
                         </div>
@@ -687,9 +679,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/';
-        this.page.identifier = '/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/';
-        this.page.title = '我的LeetCode之旅「两数相加」';
+        this.page.url = 'http://manito.fun/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/';
+        this.page.identifier = '/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/';
+        this.page.title = '模仿 Postwoman 实现了一个自己的接口调试工具';
     };
     let disqus_shortname = 'oliver-3';
 
@@ -978,9 +970,67 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/">
+                    <div class="card-image">
+                        
+                        <img src="/images/WX20200822-223911@2x/png" class="responsive-img" alt="模仿 Postwoman 实现了一个自己的接口调试工具">
+                        
+                        <span class="card-title">模仿 Postwoman 实现了一个自己的接口调试工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1. 前言想必大家平日里开发接口，或多或少都用过 postman 这款接口测试工具，应该都对他不陌生。近日偶然发现一款 web 版接口测试工具并且免费开源。对，它就是 postwoman，清爽帅气的 UI 界面，强大的功能，相对 postm
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    我的项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Nuxt/">
+                        <span class="chip bg-color">Nuxt</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/">
                     <div class="card-image">
@@ -999,59 +1049,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/LeetCode/">
-                        <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/wo-de-leetcode-zhi-lu-liang-shu-zhi-he/">
-                    <div class="card-image">
-                        
-                        <img src="/images/iuLe93nYpIaKVvN.jpg" class="responsive-img" alt="我的LeetCode之旅「两数之和」">
-                        
-                        <span class="card-title">我的LeetCode之旅「两数之和」</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            一、题目描述给定一个整数数组 nums  和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
-二、示例
-给定 nums = 
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-08
                             </span>
                         <span class="publish-author">
                             

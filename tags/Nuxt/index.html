@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, javascript,full stack developer,font end,blog,oliver&#39;s blog,typescript,nodejs,vue,中文博客">
+    <meta name="keywords" content="标签: Nuxt, javascript,full stack developer,font end,blog,oliver&#39;s blog,typescript,nodejs,vue,中文博客">
     <meta name="description" content="享受编程和技术所带来的快乐 - Enjoy Coding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>404 | Oliver&#39;s Blog</title>
+    <title>标签: Nuxt | Oliver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/libs/awesome/css/all.css">
@@ -316,37 +316,164 @@
 
 </header>
 
-    <style type="text/css">
-  /* don't remove. */
-  .about-cover {
-    height: 75vh;
-  }
-</style>
-
-<div class="bg-cover pd-header about-cover">
-  <div class="container">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
     <div class="row">
-      <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
-          <div class="title center-align">
-            404
-          </div>
-          <div class="description center-align">
-            你来到了没有知识的荒原 :(
-          </div>
+            <div class="title center-align">
+                
+                记录下自己成长的点滴
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['从来没有真正的绝境, 只有心灵的迷途','Never really desperate, only the lost of the soul'],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 
+
 <script>
-  // 每天切换 banner 图.  Switch banner image every day.
-  $(".bg-cover").css(
-    "background-image",
-    "url(/medias/banner/" + new Date().getDay() + ".jpg)"
-  );
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
+
+
+    </div>
+</div>
+
+<main class="content">
+
+    
+
+<div id="tags" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+            </div>
+            <div class="tag-chips">
+                
+                
+                <a href="/tags/JavaScript/" title="JavaScript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JavaScript" style="background-color: #F9EBEA;">JavaScript
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" title="作用域: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="作用域" style="background-color: #F5EEF8;">作用域
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/LeetCode/" title="LeetCode: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="LeetCode" style="background-color: #D5F5E3;">LeetCode
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Nuxt/" title="Nuxt: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="Nuxt" style="background-color: #E8F8F5;">Nuxt
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vue/" title="Vue: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vue" style="background-color: #FEF9E7;">Vue
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/TypeScript/" title="TypeScript: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="TypeScript" style="background-color: #F8F9F9;">TypeScript
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="Nuxt, Vue" data-aos="fade-up">
+                <div class="card">
+                    <a href="/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="/images/WX20200822-223911@2x/png" class="responsive-img" alt="模仿 Postwoman 实现了一个自己的接口调试工具">
+                            
+                            <span class="card-title">模仿 Postwoman 实现了一个自己的接口调试工具</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                                </a>
+                                
+                                <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                我的项目
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </article>
+</main>
+
+
 
 
     <footer class="page-footer bg-color">
