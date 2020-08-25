@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://manito.fun/"/>
-  <updated>2020-08-22T15:31:19.309Z</updated>
+  <updated>2020-08-25T15:05:56.007Z</updated>
   <id>http://manito.fun/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>入门Go语言学习笔记</title>
+    <link href="http://manito.fun/go-yu-yan-ru-men-xue-xi-bi-ji/"/>
+    <id>http://manito.fun/go-yu-yan-ru-men-xue-xi-bi-ji/</id>
+    <published>2020-08-25T14:54:11.000Z</published>
+    <updated>2020-08-25T15:05:56.007Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1-编写第一个-Go-程序&quot;&gt;&lt;a href=&quot;#1-编写第一个-Go-程序&quot; class=&quot;headerlink&quot; title=&quot;1. 编写第一个 Go 程序&quot;&gt;&lt;/a&gt;1. 编写第一个 Go 程序&lt;/h1&gt;&lt;h2 id=&quot;基本程序结构&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="后端" scheme="http://manito.fun/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+      <category term="学习笔记" scheme="http://manito.fun/categories/%E5%90%8E%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Golang" scheme="http://manito.fun/tags/Golang/"/>
+    
+  </entry>
+  
+  <entry>
     <title>模仿 Postwoman 实现了一个自己的接口调试工具</title>
     <link href="http://manito.fun/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/"/>
     <id>http://manito.fun/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/</id>
     <published>2020-08-22T15:30:43.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -54,7 +83,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-chu-shu-bo-yi/</id>
     <published>2020-08-08T05:19:07.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -82,7 +111,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-xiang-jia/</id>
     <published>2020-07-05T09:10:07.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -109,7 +138,7 @@
     <link href="http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-zhi-he/"/>
     <id>http://manito.fun/wo-de-leetcode-zhi-lu-liang-shu-zhi-he/</id>
     <published>2020-07-02T02:08:05.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -136,7 +165,7 @@
     <link href="http://manito.fun/shi-me-shi-zuo-yong-yu/"/>
     <id>http://manito.fun/shi-me-shi-zuo-yong-yu/</id>
     <published>2020-06-29T15:30:43.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -168,7 +197,7 @@
     <link href="http://manito.fun/typescript-gong-cheng-pei-zhi/"/>
     <id>http://manito.fun/typescript-gong-cheng-pei-zhi/</id>
     <published>2020-06-26T14:16:32.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
@@ -196,7 +225,7 @@
     <link href="http://manito.fun/typescript-ji-chu-yu-fa/"/>
     <id>http://manito.fun/typescript-ji-chu-yu-fa/</id>
     <published>2020-06-26T13:36:33.000Z</published>
-    <updated>2020-08-22T15:31:19.309Z</updated>
+    <updated>2020-08-25T15:05:56.007Z</updated>
     
     <summary type="html">
     
