@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="javascript,javascript作用域,javascript编译原理,你不知道的javascript">
+    <meta name="keywords" content="javascript, 作用域, javascript作用域, javascript编译原理, 你不知道的javascript">
     <meta name="description" content="享受编程和技术所带来的快乐 - Enjoy Coding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>什么是作用域？ | Oliver&#39;s Blog</title>
+    <title>读《你不知道的JavaScript》笔记之：作用域 | Oliver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/libs/awesome/css/all.css">
@@ -338,7 +338,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">什么是作用域？</h1>
+                    <h1 class="description center-align post-title">读《你不知道的JavaScript》笔记之：作用域</h1>
                 </div>
             </div>
         </div>
@@ -400,7 +400,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-08-25
+                    2020-09-28
                 </div>
                 
 
@@ -429,8 +429,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><hr>
-<p>作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责，使我这个理解能力稍弱的人，都能完全掌握。</p>
+                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责。那么今天我门用思维导图的方式来梳理作用域知识。</p>
+<p><img src="/images/%E4%BD%9C%E7%94%A8%E5%9F%9F%E8%84%91%E5%9B%BE.svg" alt="作用域脑图.png"></p>
 <h1 id="二、编译原理"><a href="#二、编译原理" class="headerlink" title="二、编译原理"></a>二、编译原理</h1><hr>
 <p>了解过编译原理的同学可能都会知道，大多数编程语言在执行前，一般要经过：词法分析、语法分析、代码优化、生成中间码或生成指定平台的 CPU 指令（这里对编译的流程的解释过于粗略，后面打算专门几篇文章来梳理编译原理）。</p>
 <p>那么为什么我要简单聊一下编译过程呢？这就和 JavaScript 语言的特殊性息息相关了，我们通常把 JavaScript 认为是“解释型”语言，但归根结底它还是一门编译语言，只不过它的某些环节变的相当复杂。比如，它的构建过程是在执行前的几微秒内发生的（甚至更短），所以 JavaScript 引擎用尽各种方法（比如 JIT，可以延迟编译）来保证性能最佳。</p>
@@ -500,7 +500,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://manito.fun/shi-me-shi-zuo-yong-yu/">http://manito.fun/shi-me-shi-zuo-yong-yu/</a>
+                    <a href="http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/">http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,9 +709,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://manito.fun/shi-me-shi-zuo-yong-yu/';
-        this.page.identifier = '/shi-me-shi-zuo-yong-yu/';
-        this.page.title = '什么是作用域？';
+        this.page.url = 'http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/';
+        this.page.identifier = '/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/';
+        this.page.title = '读《你不知道的JavaScript》笔记之：作用域';
     };
     let disqus_shortname = 'oliver-3';
 
