@@ -1,5 +1,5 @@
 ---
-title: 什么是作用域？
+title: 读《你不知道的JavaScript》笔记之：作用域
 author: Oliver
 top: false
 cover: false
@@ -15,14 +15,14 @@ tags:
 categories:
   - 前端
   - 读书笔记
-keywords: javascript,javascript作用域,javascript编译原理,你不知道的javascript
+keywords: javascript, 作用域, javascript作用域, javascript编译原理, 你不知道的javascript
 ---
 
 # 一、前言
 
----
+作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责。那么今天我门用思维导图的方式来梳理作用域知识。
 
-作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责，使我这个理解能力稍弱的人，都能完全掌握。
+![作用域脑图.png](/images/作用域脑图.svg)
 
 # 二、编译原理
 
