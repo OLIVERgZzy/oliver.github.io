@@ -80,6 +80,6 @@ if (faviconExt === 'jpg') { iconType = 'image/jpeg' } else if (faviconExt ===
     type="text/css"
     href="<%- theme.jsDelivr.url %><%- url_for('/css/my.css') %>"
   />
-  <meta name="referrer" content="unsafe-url" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
   <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
 </head>
