@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="前端, javascript, this, this指向, 上下文, call, apply, bind, 你不知道的javascript">
+    <meta name="keywords" content="算法, javascript, leetcode, 两数之和, leetcode 两数之和">
     <meta name="description" content="享受编程和技术所带来的快乐 - Enjoy Coding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>读《你不知道的JavaScript》笔记之：this | Oliver&#39;s Blog</title>
+    <title>我的LeetCode之旅「两数之和」 | Oliver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/5XQk9gFlIAB2z3m.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/iuLe93nYpIaKVvN.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">读《你不知道的JavaScript》笔记之：this</h1>
+                    <h1 class="description center-align post-title">我的LeetCode之旅「两数之和」</h1>
                 </div>
             </div>
         </div>
@@ -360,12 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
-                            </a>
-                        
-                            <a href="/tags/this/">
-                                <span class="chip bg-color">this</span>
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -376,12 +372,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
-                            </a>
-                        
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                读书笔记
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -393,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-26
+                    2020-07-02
                 </div>
                 
 
@@ -407,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3
+                    234
                 </div>
                 
 
@@ -429,7 +421,31 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p><img src="/images/this%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.svg" alt="this思维导图.png"></p>
+                <h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>给定一个整数数组 nums  和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
+<h1 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h1><blockquote>
+<p>给定 nums = [2, 7, 11, 15], target = 9</p>
+<p>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
+</blockquote>
+<h1 id="三、解题"><a href="#三、解题" class="headerlink" title="三、解题"></a>三、解题</h1><p>语言：javascript</p>
+<p>思路：遍历 <code>nums</code>，用 <code>target</code> 数值与数组 <code>nums</code> 中每个数值相减获得到另一个数值，如果这个数值刚好存在<code>nums</code> 中，则返回。</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */</span>
+<span class="token keyword">const</span> twoSum <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>nums<span class="token punctuation">,</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 遍历 `nums` 数组</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 求目标减去当前索引的数值</span>
+    <span class="token keyword">let</span> disc <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 查找 `nums` 数组中是否存在这个值</span>
+    <span class="token keyword">let</span> idx <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>disc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>idx <span class="token operator">!==</span> i <span class="token operator">&amp;&amp;</span> idx <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> nums<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>disc<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -455,7 +471,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/">http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/</a>
+                    <a href="http://manito.fun/2020/07/liang-shu-zhi-he/">http://manito.fun/2020/07/liang-shu-zhi-he/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -493,12 +509,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
-                                </a>
-                            
-                                <a href="/tags/this/">
-                                    <span class="chip bg-color">this</span>
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
                         </div>
@@ -664,9 +676,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://manito.fun/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/';
-        this.page.identifier = '/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/';
-        this.page.title = '读《你不知道的JavaScript》笔记之：this';
+        this.page.url = 'http://manito.fun/2020/07/liang-shu-zhi-he/';
+        this.page.identifier = '/2020/07/liang-shu-zhi-he/';
+        this.page.title = '我的LeetCode之旅「两数之和」';
     };
     let disqus_shortname = 'oliver-3';
 
@@ -955,29 +967,77 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/du-ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/">
+                <a href="/2020/07/liang-shu-xiang-jia/">
                     <div class="card-image">
                         
-                        <img src="/images/5XQk9gFlIAB2z3m.jpg" class="responsive-img" alt="读《你不知道的JavaScript》笔记之：this">
+                        <img src="/images/iuLe93nYpIaKVvN.jpg" class="responsive-img" alt="我的LeetCode之旅「两数相加」">
                         
-                        <span class="card-title">读《你不知道的JavaScript》笔记之：this</span>
+                        <span class="card-title">我的LeetCode之旅「两数相加」</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、前言
-
+                            一、题目描述给出两个   非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照   逆序   的方式存储的，并且它们的每个节点只能存储   一位   数字。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+您可
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/LeetCode/">
+                        <span class="chip bg-color">LeetCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/">
+                    <div class="card-image">
+                        
+                        <img src="/images/5XQk9gFlIAB2z3m.jpg" class="responsive-img" alt="读《你不知道的JavaScript》笔记之：作用域">
+                        
+                        <span class="card-title">读《你不知道的JavaScript》笔记之：作用域</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-29
                             </span>
                         <span class="publish-author">
                             
@@ -995,7 +1055,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1003,68 +1062,8 @@
                         <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/this/">
-                        <span class="chip bg-color">this</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/go-yu-yan-ru-men-xue-xi-bi-ji/">
-                    <div class="card-image">
-                        
-                        <img src="/images/55a9aba97d1e214f849ab2e55f3dabff.jpeg" class="responsive-img" alt="入门Go语言学习笔记">
-                        
-                        <span class="card-title">入门Go语言学习笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            1. 编写第一个 Go 程序基本程序结构// 基本程序结构
-
-package main // 包，表明代码所在模块（包）
-
-import "fmt" // 引入代码依赖
-
-// 功能实现
-func main() {
-    fmt.Prin
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-25
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Golang/">
-                        <span class="chip bg-color">Golang</span>
+                    <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
+                        <span class="chip bg-color">作用域</span>
                     </a>
                     
                 </div>
@@ -1223,7 +1222,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         class="fas fa-chart-area"
       ></i
       >&nbsp;站点总字数:&nbsp;<span class="white-color"
-        >10.8k</span
+        >11.1k</span
       >&nbsp;字      
       <span id="busuanzi_container_site_pv">
         |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
