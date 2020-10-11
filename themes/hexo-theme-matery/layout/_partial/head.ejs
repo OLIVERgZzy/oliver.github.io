@@ -37,7 +37,6 @@ if (faviconExt === 'jpg') { iconType = 'image/jpeg' } else if (faviconExt ===
     name="apple-mobile-web-app-status-bar-style"
     content="black-translucent"
   />
-  <meta name="referrer" content="unsafe-url" />
   <%- partial('_partial/google-analytics') %>
   <title><%= pageTitle %></title>
   <link
@@ -81,6 +80,6 @@ if (faviconExt === 'jpg') { iconType = 'image/jpeg' } else if (faviconExt ===
     type="text/css"
     href="<%- theme.jsDelivr.url %><%- url_for('/css/my.css') %>"
   />
-
+  <meta name="referrer" content="unsafe-url" />
   <script src="<%- theme.jsDelivr.url %><%- url_for(theme.libs.js.jquery) %>"></script>
 </head>
