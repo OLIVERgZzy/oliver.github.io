@@ -11,7 +11,7 @@ password:
 summary:
 tags: LeetCode
 categories: 算法
-keywords: 算法,javascript,leetcode,除数博弈,leetcode 除数博弈
+keywords: 算法, javascript, leetcode, 除数博弈, leetcode 除数博弈
 ---
 
 # 一、题目描述

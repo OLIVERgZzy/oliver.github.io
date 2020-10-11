@@ -11,7 +11,7 @@ password:
 summary: 用代码示例带你一步一步了解 TypeScript 基础语法知识
 tags: TypeScript
 categories: 前端
-keywords: ts, typescript, typescript中文教程, ts中文教程, ts入门, ts教程, interface, ts interface, ts 接口, 接口, 泛型, ts 泛型, enum, 枚举, ts enum, ts枚举, ts声明文件
+keywords: 前端, ts, typescript, typescript中文教程, ts中文教程, ts入门, ts教程, interface, ts interface, ts 接口, 接口, 泛型, ts 泛型, enum, 枚举, ts enum, ts枚举, ts声明文件
 ---
 
 # 一、开始一个项目

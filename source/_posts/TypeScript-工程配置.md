@@ -11,7 +11,7 @@ password:
 summary: TypeScript 工程化配置入门
 tags: TypeScript
 categories: 前端
-keywords: ts, typescript, typescript中文教程, ts中文教程, ts工程配置, typescript工程配置, ts入门, ts配置项, ts教程
+keywords: 前端, ts, typescript, typescript中文教程, ts中文教程, ts工程配置, typescript工程配置, ts入门, ts配置项, ts教程
 ---
 
 # 一、文件选项配置

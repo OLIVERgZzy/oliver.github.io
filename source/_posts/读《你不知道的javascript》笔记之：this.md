@@ -6,7 +6,7 @@ cover: false
 toc: false
 mathjax: false
 date: 2020-09-26 10:55:02
-img:
+img: /images/5XQk9gFlIAB2z3m.jpg
 password:
 summary:
 tags:

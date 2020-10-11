@@ -14,7 +14,7 @@ tags:
 categories:
   - 后端
   - 学习笔记
-keywords: golang, go语言, go学习笔记, 学习笔记, go入门, go入门笔记
+keywords: 后端, golang, go, go语言, go学习笔记, 学习笔记, go入门, go入门笔记
 ---
 
 # 1. 编写第一个 Go 程序

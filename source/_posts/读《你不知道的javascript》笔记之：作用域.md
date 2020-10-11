@@ -15,7 +15,7 @@ tags:
 categories:
   - 前端
   - 读书笔记
-keywords: javascript, 作用域, javascript作用域, javascript编译原理, 你不知道的javascript
+keywords: 前端, javascript, 作用域, javascript作用域, javascript编译原理, 你不知道的javascript
 ---
 
 # 一、前言
