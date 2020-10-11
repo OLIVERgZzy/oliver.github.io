@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://manito.fun/"/>
-  <updated>2020-10-11T10:11:27.429Z</updated>
+  <updated>2020-10-11T10:43:33.408Z</updated>
   <id>http://manito.fun/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>读《你不知道的JavaScript》笔记之：this</title>
-    <link href="http://manito.fun/2020/09/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/"/>
-    <id>http://manito.fun/2020/09/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-this/</id>
+    <link href="http://manito.fun/2020/09/jsthis/"/>
+    <id>http://manito.fun/2020/09/jsthis/</id>
     <published>2020-09-26T02:55:02.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -49,10 +49,10 @@
   
   <entry>
     <title>入门Go语言学习笔记</title>
-    <link href="http://manito.fun/2020/08/ru-men-go-yu-yan-xue-xi-bi-ji/"/>
-    <id>http://manito.fun/2020/08/ru-men-go-yu-yan-xue-xi-bi-ji/</id>
+    <link href="http://manito.fun/2020/08/golanglearn/"/>
+    <id>http://manito.fun/2020/08/golanglearn/</id>
     <published>2020-08-25T14:54:11.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -78,10 +78,10 @@
   
   <entry>
     <title>模仿 Postwoman 实现了一个自己的接口调试工具</title>
-    <link href="http://manito.fun/2020/08/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/"/>
-    <id>http://manito.fun/2020/08/mo-fang-postwoman-shi-xian-liao-yi-ge-zi-ji-de-jie-kou-diao-shi-gong-ju/</id>
+    <link href="http://manito.fun/2020/08/postchild/"/>
+    <id>http://manito.fun/2020/08/postchild/</id>
     <published>2020-08-22T15:30:43.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -111,10 +111,10 @@
   
   <entry>
     <title>我的LeetCode之旅「除数博弈」</title>
-    <link href="http://manito.fun/2020/08/chu-shu-bo-yi/"/>
-    <id>http://manito.fun/2020/08/chu-shu-bo-yi/</id>
+    <link href="http://manito.fun/2020/08/divisorgame/"/>
+    <id>http://manito.fun/2020/08/divisorgame/</id>
     <published>2020-08-08T05:19:07.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -139,10 +139,10 @@
   
   <entry>
     <title>我的LeetCode之旅「两数相加」</title>
-    <link href="http://manito.fun/2020/07/liang-shu-xiang-jia/"/>
-    <id>http://manito.fun/2020/07/liang-shu-xiang-jia/</id>
+    <link href="http://manito.fun/2020/07/addtwonumbers/"/>
+    <id>http://manito.fun/2020/07/addtwonumbers/</id>
     <published>2020-07-05T09:10:07.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -166,10 +166,10 @@
   
   <entry>
     <title>我的LeetCode之旅「两数之和」</title>
-    <link href="http://manito.fun/2020/07/liang-shu-zhi-he/"/>
-    <id>http://manito.fun/2020/07/liang-shu-zhi-he/</id>
+    <link href="http://manito.fun/2020/07/sumoftwonumbers/"/>
+    <id>http://manito.fun/2020/07/sumoftwonumbers/</id>
     <published>2020-07-02T02:08:05.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -193,10 +193,10 @@
   
   <entry>
     <title>读《你不知道的JavaScript》笔记之：作用域</title>
-    <link href="http://manito.fun/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/"/>
-    <id>http://manito.fun/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/</id>
+    <link href="http://manito.fun/2020/06/jsscope/"/>
+    <id>http://manito.fun/2020/06/jsscope/</id>
     <published>2020-06-29T15:30:43.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -224,10 +224,10 @@
   
   <entry>
     <title>TypeScript 工程配置</title>
-    <link href="http://manito.fun/2020/06/typescript-gong-cheng-pei-zhi/"/>
-    <id>http://manito.fun/2020/06/typescript-gong-cheng-pei-zhi/</id>
+    <link href="http://manito.fun/2020/06/tsconfig/"/>
+    <id>http://manito.fun/2020/06/tsconfig/</id>
     <published>2020-06-26T14:16:32.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     
@@ -252,10 +252,10 @@
   
   <entry>
     <title>TypeScript 基础语法</title>
-    <link href="http://manito.fun/2020/06/typescript-ji-chu-yu-fa/"/>
-    <id>http://manito.fun/2020/06/typescript-ji-chu-yu-fa/</id>
+    <link href="http://manito.fun/2020/06/ts/"/>
+    <id>http://manito.fun/2020/06/ts/</id>
     <published>2020-06-26T13:36:33.000Z</published>
-    <updated>2020-10-11T10:11:27.429Z</updated>
+    <updated>2020-10-11T10:43:33.408Z</updated>
     
     <summary type="html">
     

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="前端, javascript, 作用域, javascript作用域, javascript编译原理, 你不知道的javascript">
+    <meta name="keywords" content="算法, javascript, leetcode, 除数博弈, leetcode 除数博弈">
     <meta name="description" content="享受编程和技术所带来的快乐 - Enjoy Coding">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>读《你不知道的JavaScript》笔记之：作用域 | Oliver&#39;s Blog</title>
+    <title>我的LeetCode之旅「除数博弈」 | Oliver&#39;s Blog</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/OLIVERgZzy/oliver.github.io@gh-pages/libs/awesome/css/all.css">
@@ -333,12 +333,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/5XQk9gFlIAB2z3m.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/iuLe93nYpIaKVvN.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">读《你不知道的JavaScript》笔记之：作用域</h1>
+                    <h1 class="description center-align post-title">我的LeetCode之旅「除数博弈」</h1>
                 </div>
             </div>
         </div>
@@ -360,12 +360,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaScript/">
-                                <span class="chip bg-color">JavaScript</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
-                                <span class="chip bg-color">作用域</span>
+                            <a href="/tags/LeetCode/">
+                                <span class="chip bg-color">LeetCode</span>
                             </a>
                         
                     </div>
@@ -376,12 +372,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                前端
-                            </a>
-                        
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                读书笔记
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -393,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-29
+                    2020-08-08
                 </div>
                 
 
@@ -407,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    246
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -429,53 +421,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作用域在 JavaScript 中是个一直是个老生长谈的话题，因为涉及到到原理非常深，知识点非常广，困扰着无数新手前端，我就是其中一个。恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责。<br>（思维导图单击可放大查看）</p>
-<p><img src="/images/%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.svg" alt="作用域思维导图.png"></p>
-<h1 id="一、关于作用域"><a href="#一、关于作用域" class="headerlink" title="一、关于作用域"></a>一、关于作用域</h1><p>作用域几乎是所有编程语言最基本的功能之一，其基本功能就是储存变量中的值，并且能在之后对这个值进行访问或修改。</p>
-<h1 id="二、编译原理"><a href="#二、编译原理" class="headerlink" title="二、编译原理"></a>二、编译原理</h1><hr>
-<p>了解过编译原理的同学可能都会知道，大多数编程语言在执行前，一般要经过：词法分析、语法分析、代码优化、生成中间码或生成指定平台的 CPU 指令（这里对编译的流程的解释过于粗略，后面打算专门几篇文章来梳理编译原理）。</p>
-<p>那么为什么我要简单聊一下编译过程呢？这就和 JavaScript 语言的特殊性息息相关了，我们通常把 JavaScript 认为是“解释型”语言，但归根结底它还是一门编译语言，只不过它的某些环节变的相当复杂。比如，它的构建过程是在执行前的几微秒内发生的（甚至更短），所以 JavaScript 引擎用尽各种方法（比如 JIT，可以延迟编译）来保证性能最佳。</p>
-<p>简单来说，任何 JavaScript 代码片段在执行前都需要进行编译（通常就是在执行前）。那么你可能会问了，这个高深莫测的编译原理和我今天讨论的主题有什么关联呢？我们先怀揣着疑问，继续看下去。</p>
-<h1 id="三、理解作用域"><a href="#三、理解作用域" class="headerlink" title="三、理解作用域"></a>三、理解作用域</h1><hr>
-<h2 id="3-1-嘉宾表"><a href="#3-1-嘉宾表" class="headerlink" title="3.1 嘉宾表"></a>3.1 嘉宾表</h2><p>下面邀请出今晚最重要的三位嘉宾，它们分别是：引擎、编译器和作用域，掌声欢迎。</p>
-<p>我叫引擎，执行 JavaScript 可少不了我的存在，我负责 JavaScript 编译、优化、执行的全过程。</p>
-<p>我叫编译器，是引擎大哥的最重要的助手，在接到引擎大哥交给我的 JavaScript 代码片段之后，我会立刻将其转换成 AST（抽象语法树）。在把 AST 交给引擎大哥前，我还会与作用域先生（那个家伙脾气可不太好）一起协调确认作用域规则。</p>
-<p>我叫作用域，是引擎的另一位好朋友，负责收集并维护由所有声明的标识符（变量）组成的一系列查询，并实施一套非常严格的规则。不过我的脾气比较粗暴，因为编译器总是会问我，“你有没有见过变量 a ”、“你有没有见过函数 foo ”等之类的问题，通常如果我见过就会返回这个变量，如果从来没见过的话，就会给编译器脸色看（抛出一个异常）。</p>
-<h2 id="3-2-引擎查找变量规则"><a href="#3-2-引擎查找变量规则" class="headerlink" title="3.2 引擎查找变量规则"></a>3.2 引擎查找变量规则</h2><p>在正式理解作用域之前，我们得先了解一下这个概念————编译器的 LHS RHS，也就是 JavaScript 是如何变量声明和赋值。</p>
-<p>当出现赋值操作时，编译器会使用 LHS 方法沿着作用域链，从当前作用域到顶层作用域中挨个查询目标，如果一直没有找到该目标，则会抛出异常（ReferenceError）程序就不会再往下执行，请看下面的例子：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></code></pre>
-<p>当引擎去执行这段代码的时候，其实分成了两步：<br>第一步：编译器在把代码转换成 AST 树后，引擎会为 a 当前所在的作用域内开辟一个名为 a 的容器（通常作用域在执行前确定）。<br>第二步：接着编译器会使用 LHS 规则去查找这个名为 a 的容器，最后给这个名为 a 的容器赋值。</p>
-<p>当出现取值操作时，编译器会使用 RHS 方法沿着作用域链，从当前作用域到顶层作用域中挨个查询目标，如果一直没有找到该目标，则会跑出异常（ReferenceError）程序就不会再往下执行，请看下面的例子：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">foo</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>从 <code>foo(a);</code> 这行代码开始，首先会按 RHS 规则查询 foo，如果查询成功，则继续查询 a，如果查询成功将 a 的值映射到 foo 函数的 arguments[0] ，于是执行 <code>console.log(b);</code>。其实这里的 <code>console.log</code> 也会按照 RHS 的规则查找当前作用域中是否存在 <code>console</code>，以此类推，继续查找 <code>console.log</code>;</p>
-<h2 id="四、作用域嵌套"><a href="#四、作用域嵌套" class="headerlink" title="四、作用域嵌套"></a>四、作用域嵌套</h2><p>作用域还存在作用域嵌套的问题，比如 <code>foo</code> 就嵌套在全局作用域当中，<code>boo</code> 嵌套在 <code>foo</code> 的函数作用域中，我们看下面这段代码：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> b <span class="token operator">=</span> a <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">function</span> <span class="token function">boo</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> c <span class="token operator">=</span> b <span class="token operator">*</span> <span class="token number">3</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token function">boo</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token function">foo</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<p>这段代码的执行结果最终是什么呢？答案是 <code>1, 3, 9</code>, 虽然 foo 函数内部和 boo 函数内部都有名称为 c 的变量名，但是根据作用域的规则，它总是取离他最近的那个变量。所以外层的 c 会被里层的 c 所覆盖。但是在严格模式下，这种行为不被允许。</p>
-<h1 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h1><ul>
-<li>通常作用域在 JavaScript 引擎执行代码片段前，且一经确认则不会再发生改变</li>
-<li>作用域与 JavaScript 编译器的两种查询规则紧密配合： LHS、RHS</li>
-<li>作用域存在作用域嵌套问题，变量同名的情况下，内部的优先级高于外部的优先级</li>
-</ul>
+                <h1 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h1><p>爱丽丝和鲍勃一起玩游戏，他们轮流行动。爱丽丝先手开局。</p>
+<p>最初，黑板上有一个数字  N 。在每个玩家的回合，玩家需要执行以下操作：</p>
+<p>选出任一  x，满足  0 &lt; x &lt; N 且  N % x == 0 。<br>用 N - x  替换黑板上的数字 N 。<br>如果玩家无法执行这些操作，就会输掉游戏。</p>
+<p>只有在爱丽丝在游戏中取得胜利时才返回  True，否则返回 False。假设两个玩家都以最佳状态参与游戏。</p>
+<h1 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h1><p>示例 1:</p>
+<blockquote>
+<p>输入：2<br>输出：true<br>解释：爱丽丝选择 1，鲍勃无法进行操作。</p>
+</blockquote>
+<p>示例 2:</p>
+<blockquote>
+<p>输入：3<br>输出：false<br>解释：爱丽丝选择 1，鲍勃也选择 1，然后爱丽丝无法进行操作。</p>
+</blockquote>
+<h1 id="三、解题"><a href="#三、解题" class="headerlink" title="三、解题"></a>三、解题</h1><p>语言：javascript</p>
+<p>思路：爱丽丝拿到偶数必定胜利、拿到奇数必定失败</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+ * @param {number} N
+ * @return {boolean}
+ */</span>
+<span class="token keyword">var</span> divisorGame <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>N<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> N <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -501,7 +467,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://manito.fun/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/">http://manito.fun/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/</a>
+                    <a href="http://manito.fun/2020/08/divisorgame/">http://manito.fun/2020/08/divisorgame/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -539,12 +505,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/JavaScript/">
-                                    <span class="chip bg-color">JavaScript</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/">
-                                    <span class="chip bg-color">作用域</span>
+                                <a href="/tags/LeetCode/">
+                                    <span class="chip bg-color">LeetCode</span>
                                 </a>
                             
                         </div>
@@ -710,9 +672,9 @@
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'http://manito.fun/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/';
-        this.page.identifier = '/2020/06/ni-bu-zhi-dao-de-javascript-bi-ji-zhi-zuo-yong-yu/';
-        this.page.title = '读《你不知道的JavaScript》笔记之：作用域';
+        this.page.url = 'http://manito.fun/2020/08/divisorgame/';
+        this.page.identifier = '/2020/08/divisorgame/';
+        this.page.title = '我的LeetCode之旅「除数博弈」';
     };
     let disqus_shortname = 'oliver-3';
 
@@ -1005,27 +967,86 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/liang-shu-zhi-he/">
+                <a href="/2020/08/postchild/">
                     <div class="card-image">
                         
-                        <img src="/images/iuLe93nYpIaKVvN.jpg" class="responsive-img" alt="我的LeetCode之旅「两数之和」">
+                        <img src="/images/WX20200822-223911@2x.png" class="responsive-img" alt="模仿 Postwoman 实现了一个自己的接口调试工具">
                         
-                        <span class="card-title">我的LeetCode之旅「两数之和」</span>
+                        <span class="card-title">模仿 Postwoman 实现了一个自己的接口调试工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、题目描述给定一个整数数组 nums  和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。
-你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
-二、示例
-给定 nums = 
+                            1. 前言想必大家平日里开发接口，或多或少都用过 postman 这款接口测试工具，应该都对他不陌生。近日偶然发现一款 web 版接口测试工具并且免费开源。对，它就是 postwoman，清爽帅气的 UI 界面，强大的功能，相对 postm
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-22
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    我的项目
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Nuxt/">
+                        <span class="chip bg-color">Nuxt</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/Http%E5%8D%8F%E8%AE%AE/">
+                        <span class="chip bg-color">Http协议</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/addtwonumbers/">
+                    <div class="card-image">
+                        
+                        <img src="/images/iuLe93nYpIaKVvN.jpg" class="responsive-img" alt="我的LeetCode之旅「两数相加」">
+                        
+                        <span class="card-title">我的LeetCode之旅「两数相加」</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、题目描述给出两个   非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照   逆序   的方式存储的，并且它们的每个节点只能存储   一位   数字。
+如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
+您可
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1043,54 +1064,6 @@
                     
                     <a href="/tags/LeetCode/">
                         <span class="chip bg-color">LeetCode</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/typescript-gong-cheng-pei-zhi/">
-                    <div class="card-image">
-                        
-                        <img src="/images/FXahC9M3wfxZtjO.jpg" class="responsive-img" alt="TypeScript 工程配置">
-                        
-                        <span class="card-title">TypeScript 工程配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            TypeScript 工程化配置入门
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/TypeScript/">
-                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
                 </div>
@@ -1249,7 +1222,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         class="fas fa-chart-area"
       ></i
       >&nbsp;站点总字数:&nbsp;<span class="white-color"
-        >11.1k</span
+        >11.2k</span
       >&nbsp;字      
       <span id="busuanzi_container_site_pv">
         |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
