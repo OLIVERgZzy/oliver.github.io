@@ -34,12 +34,26 @@ this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾
 
 # 2.1 指向自身
 
-也许是受 Java 语言的影响，在我学习前端的初期也误以为 JavaScript 的 this 关键字和 Java 中的 this 关键字功能一样。
+也许是受 Java 语言的影响，在我刚开始学习前端的初期也误以为 JavaScript 的 this 关键字和 Java 中的 this 关键字功能类似。
 
-在 Java 中 this 关键字的用法大概如下：
+让我来回忆一下 this 关键字在 Java 中有哪些用法吧：
 
 1. 关键字可用来引用当前类的实例变量
 2. 关键字可用于调用当前类方法
 3. 可以用来调用当前类的构造函数
+
+我在编写 JavaScript 代码初期，认为既然 JavaScript 中函数可以被看作是一个对象，那么在函数中使用 this 从内部引用函数自身也是可行的，顺着这个惯性思维会产生如下代码：
+
+```javascript
+function foo() {
+  this.count++;
+}
+
+foo.count = 0;
+
+for (let i = 0; i < 5; i++) {
+  foo();
+}
+```
 
 # 2.2 联通作用域
