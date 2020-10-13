@@ -407,14 +407,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    709
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -509,8 +509,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
-<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span></code></pre>
-<p>这段代码具有误导性，企图在 foo 函数中调用 bar（浏览器环境下可以调通，Node 环境下报错），又因为 bar 是在 foo 函数中被调用，所以误以为在 bar 函数中可以访问到变量 a。</p>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined 或 TypeError: this.bar is not a function</span></code></pre>
+<p>这段代码具有误导性，企图在 foo 函数中调用 bar（浏览器环境下可以调通，Node 环境下报错），又因为 bar 是在 foo 函数内部中被调用，所以从写法角度去看，会造成在 bar 函数中可以访问到变量 a 的假象，但是实际上并不能。</p>
+<p>以上就是学习 this 最容易犯的两大错误认识。</p>
+<h1 id="三、this-工作机制"><a href="#三、this-工作机制" class="headerlink" title="三、this 工作机制"></a>三、this 工作机制</h1><p>在消除对 this 误解之后，我们来探寻 this 真正的工作机制到底是什么。</p>
+<p>每个函数的 this 是在调用时被绑定的，完全取决于函数的调用位置（也就是函数的调用方法）</p>
+<h1 id="四、理解-this-绑定过程"><a href="#四、理解-this-绑定过程" class="headerlink" title="四、理解 this 绑定过程"></a>四、理解 this 绑定过程</h1><h2 id="4-1-寻找函数被调用的位置"><a href="#4-1-寻找函数被调用的位置" class="headerlink" title="4.1 寻找函数被调用的位置"></a>4.1 寻找函数被调用的位置</h2><h2 id="4-2-判断绑定规则"><a href="#4-2-判断绑定规则" class="headerlink" title="4.2 判断绑定规则"></a>4.2 判断绑定规则</h2><p>在找到函数被调用的位置之后，接下来就可以根据优先级判断适用的绑定规则。<br>以下绑定规则按优先级由高到低排列。</p>
+<h3 id="4-2-1-new-绑定"><a href="#4-2-1-new-绑定" class="headerlink" title="4.2.1 new 绑定"></a>4.2.1 new 绑定</h3><h3 id="4-2-2-显示绑定"><a href="#4-2-2-显示绑定" class="headerlink" title="4.2.2 显示绑定"></a>4.2.2 显示绑定</h3><h3 id="4-2-3-隐式绑定"><a href="#4-2-3-隐式绑定" class="headerlink" title="4.2.3 隐式绑定"></a>4.2.3 隐式绑定</h3><h3 id="4-2-4-默认绑定"><a href="#4-2-4-默认绑定" class="headerlink" title="4.2.4 默认绑定"></a>4.2.4 默认绑定</h3><h2 id="4-3-绑定例外"><a href="#4-3-绑定例外" class="headerlink" title="4.3 绑定例外"></a>4.3 绑定例外</h2><h1 id="五、注意"><a href="#五、注意" class="headerlink" title="五、注意"></a>五、注意</h1><h2 id="5-1-箭头函数"><a href="#5-1-箭头函数" class="headerlink" title="5.1 箭头函数"></a>5.1 箭头函数</h2><p>在 ES6 中规范中的箭头函数，完全不适用于四条绑定规则，而是根据当前词法作用域来决定 this。</p>
+<h2 id="5-2-编码风格"><a href="#5-2-编码风格" class="headerlink" title="5.2 编码风格"></a>5.2 编码风格</h2><p>在编码时，词法作用域风格与 this 风格代码不要混用，同时使用会使代码更加难以维护，并且可能也会更难编写。</p>
 
             </div>
             <hr/>
@@ -1303,7 +1309,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
         class="fas fa-chart-area"
       ></i
       >&nbsp;站点总字数:&nbsp;<span class="white-color"
-        >11.6k</span
+        >11.9k</span
       >&nbsp;字      
       <span id="busuanzi_container_site_pv">
         |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span
