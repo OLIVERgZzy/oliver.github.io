@@ -145,6 +145,38 @@ foo(); // undefined 或 TypeError: this.bar is not a function
 
 ## 4.1 寻找函数被调用的位置
 
+寻找函数被调用的位置，最重要的就是分析调用栈（就是为了到达当前执行位置所调用的所有函数）。调用位置就在当前正在执行的函数的前一个调用中。
+
+用代码来表示：
+
+```js
+function baz() {
+  // 当前调用栈：baz
+  // 因此，当前调用位置是全局作用域
+  console.log("baz");
+
+  bar(); // <--- bar 的调用位置
+}
+
+function bar() {
+  // 当前调用栈：baz --> bar
+  // 因此，当前调用位置在baz中
+  console.log("bar");
+
+  foo(); // <--- foo 的调用位置
+}
+
+function foo() {
+  // 当前调用栈：baz --> bar --> foo
+  // 因此，当前调用位置在bar中
+  console.log("foo");
+
+  foo(); // <--- bar 的调用位置
+}
+
+baz(); // <-- baz 的调用位置
+```
+
 ## 4.2 判断绑定规则
 
 在找到函数被调用的位置之后，接下来就可以根据优先级判断适用的绑定规则。
@@ -152,13 +184,135 @@ foo(); // undefined 或 TypeError: this.bar is not a function
 
 ### 4.2.1 new 绑定
 
+使用 new 来调用函数，或者发生构造函数调用时，会自动执行下面这些操作。
+
+1. 创建（构造）一个全新的对象。
+2. 这个新对象会执行 \[\[Prototype\]\]连接。
+3. 这个新对象会绑定到函数调用的 this。
+4. 如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。
+
+```js
+function foo(a) {
+  this.a = a;
+}
+
+var bar = new foo(2);
+console.log(bar.a); // 2
+```
+
+使用 new 调用 foo(...) 时，会构造一个新对象并把它绑定到 foo(...)调用中的 this 上。
+
 ### 4.2.2 显示绑定
+
+JavaScript 提供了两个方法可以强制在某个对象上调用函数，call(...) 和 apply(...) 方法。
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var obj = {
+  a: 2,
+};
+
+foo.call(obj); // 2
+```
+
+通过 foo.call(...)，我们可以在调用 foo 时强制把它的 this 绑定在 obj 上。
 
 ### 4.2.3 隐式绑定
 
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var obj = {
+  a: 2,
+  foo: foo,
+};
+
+obj.foo(); // 2 (调用位置)
+```
+
+上面这段代码，调用位置使用 obj 上下文来引用函数，可以说成 obj 对象“拥有”或者“包含”函数引用。
+
+当函数引用有上下文对象时，隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象中。
+
+对象属性引用链中只有最后一层在调用位置中起作用。举个例子：
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var obj2 = {
+  a: 42,
+  foo: foo,
+};
+
+var obj1 = {
+  a: 2,
+  obj2: obj2,
+};
+
+obj1.obj2.foo(); // 42 (调用位置)
+```
+
 ### 4.2.4 默认绑定
 
+最常用的函数调用类型：独立函数调用。
+
+```js
+function foo() {
+  // 当前调用栈是：foo
+  // 因此，当前调用位置是全局作用域
+  console.log(this.a);
+}
+
+var a = 2;
+
+foo(); // 2
+```
+
+上面这段代码，foo() 的调用的位于全局作用域中，且 foo() 是直接使用不带任何修饰的函数引用进行调用的，因此适用于默认绑定。
+
+在严格模式下，则不能将全局对象用于默认绑定，因此 this 会绑定到 undefined。
+
 ## 4.3 绑定例外
+
+### 4.3.1 被忽略的 this
+
+当 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind，这些值在调用时会被忽略，实际应用的是默认规定规则:
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var a = 2;
+
+foo.call(null); // 2
+```
+
+### 4.3.2 间接引用
+
+调用函数的“间接引用”会应用默认绑定规则。
+
+```js
+function foo() {
+  console.log(this.a);
+}
+
+var a = 2;
+var o = { a: 3, foo: foo };
+var p = { a: 4 };
+
+o.foo(); // 3
+(p.foo = o.foo)(); // 2
+```
+
+复制表达式 `p.foo = o.foo` 的返回值是目标函数的引用，因此调用位置是 foo() 而不是 p.foo() 或者 o.foo()。
 
 # 五、注意
 
@@ -169,3 +323,12 @@ foo(); // undefined 或 TypeError: this.bar is not a function
 ## 5.2 编码风格
 
 在编码时，词法作用域风格与 this 风格代码不要混用，同时使用会使代码更加难以维护，并且可能也会更难编写。
+
+# 六、总结
+
+如果要判断一个运行中的函数的 this 绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断 this 的绑定对象。
+
+1. 由 new 调用？绑定到新创建的对象。
+2. 由 call 或者 apply（或者 bind）调用？绑定到指定的对象。
+3. 由上下文对象调用？绑定到那个上下文对象。
+4. 默认：在严格模式下绑定到 undefined，否则绑定到全局对象。
