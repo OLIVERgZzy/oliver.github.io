@@ -40,17 +40,15 @@ keywords: typescript, ts, git, githook, hook, eslint, prettier, husky, 代码质
 - [Prettier](https://prettier.io/docs/en/install.html) - 代码格式化工具
 - [Husky](https://github.com/typicode/husky) - Git Hook（Git 钩子）
 
-# 配置
+# 使用教程
 
-## 安装
+## 安装依赖
 
 ```bash
 npm i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-typescript husky prettier
 ```
 
-## 配置
-
-### 配置 .eslintrc.js
+## 配置 .eslintrc.js
 
 ```js
 module.exports = {
@@ -94,7 +92,7 @@ module.exports = {
 };
 ```
 
-### 配置 .prettierrc
+## 配置 .prettierrc
 
 具体配置参考官网：[Options](https://prettier.io/docs/en/options.html)
 
@@ -114,7 +112,7 @@ module.exports = {
 }
 ```
 
-### 配置 package.json
+## 配置 package.json
 
 添加 husky 配置，添加 eslint 命令
 
