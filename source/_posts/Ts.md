@@ -3,7 +3,7 @@ title: TypeScript 基础语法
 author: Oliver
 img: /images/FXahC9M3wfxZtjO.jpg
 top: false
-cover: true
+cover: false
 toc: true
 mathjax: false
 date: 2020-06-26 21:36:33
