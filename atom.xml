@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://manito.fun/"/>
-  <updated>2020-10-15T07:37:17.877Z</updated>
+  <updated>2020-11-07T02:49:37.792Z</updated>
   <id>http://manito.fun/</id>
   
   <author>
@@ -17,11 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>TypeScript 项目使用 Eslint + Prettier + husky 提高前端项目质量</title>
+    <link href="http://manito.fun/2020/11/husky/"/>
+    <id>http://manito.fun/2020/11/husky/</id>
+    <published>2020-11-07T01:24:45.000Z</published>
+    <updated>2020-11-07T02:49:37.792Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近几年 TypeScript 越来越得到开发者的喜爱，所以在我的推动下，公司也开始使用 TypeScript
+        
+      
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://manito.fun/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Git" scheme="http://manito.fun/tags/Git/"/>
+    
+      <category term="ESLint" scheme="http://manito.fun/tags/ESLint/"/>
+    
+      <category term="Prettier" scheme="http://manito.fun/tags/Prettier/"/>
+    
+      <category term="Husky" scheme="http://manito.fun/tags/Husky/"/>
+    
+      <category term="TypeScript" scheme="http://manito.fun/tags/TypeScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>读《你不知道的JavaScript》笔记之：this</title>
     <link href="http://manito.fun/2020/09/jsthis/"/>
     <id>http://manito.fun/2020/09/jsthis/</id>
     <published>2020-09-26T02:55:02.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -52,7 +87,7 @@
     <link href="http://manito.fun/2020/08/golanglearn/"/>
     <id>http://manito.fun/2020/08/golanglearn/</id>
     <published>2020-08-25T14:54:11.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -81,7 +116,7 @@
     <link href="http://manito.fun/2020/08/postchild/"/>
     <id>http://manito.fun/2020/08/postchild/</id>
     <published>2020-08-22T15:30:43.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -114,7 +149,7 @@
     <link href="http://manito.fun/2020/08/divisorgame/"/>
     <id>http://manito.fun/2020/08/divisorgame/</id>
     <published>2020-08-08T05:19:07.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -142,7 +177,7 @@
     <link href="http://manito.fun/2020/07/addtwonumbers/"/>
     <id>http://manito.fun/2020/07/addtwonumbers/</id>
     <published>2020-07-05T09:10:07.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -169,7 +204,7 @@
     <link href="http://manito.fun/2020/07/sumoftwonumbers/"/>
     <id>http://manito.fun/2020/07/sumoftwonumbers/</id>
     <published>2020-07-02T02:08:05.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -196,7 +231,7 @@
     <link href="http://manito.fun/2020/06/jsscope/"/>
     <id>http://manito.fun/2020/06/jsscope/</id>
     <published>2020-06-29T15:30:43.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -227,7 +262,7 @@
     <link href="http://manito.fun/2020/06/tsconfig/"/>
     <id>http://manito.fun/2020/06/tsconfig/</id>
     <published>2020-06-26T14:16:32.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
@@ -255,7 +290,7 @@
     <link href="http://manito.fun/2020/06/ts/"/>
     <id>http://manito.fun/2020/06/ts/</id>
     <published>2020-06-26T13:36:33.000Z</published>
-    <updated>2020-10-15T07:37:17.877Z</updated>
+    <updated>2020-11-07T02:49:37.792Z</updated>
     
     <summary type="html">
     
