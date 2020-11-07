@@ -415,7 +415,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    720
+                    722
                 </div>
                 
 
@@ -450,8 +450,8 @@
 <li><a href="https://prettier.io/docs/en/install.html" target="_blank" rel="noopener">Prettier</a> - 代码格式化工具</li>
 <li><a href="https://github.com/typicode/husky" target="_blank" rel="noopener">Husky</a> - Git Hook（Git 钩子）</li>
 </ul>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-typescript husky prettier</code></pre>
-<h2 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h2><h3 id="配置-eslintrc-js"><a href="#配置-eslintrc-js" class="headerlink" title="配置 .eslintrc.js"></a>配置 .eslintrc.js</h3><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+<h1 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h1><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-prettier eslint-plugin-typescript husky prettier</code></pre>
+<h2 id="配置-eslintrc-js"><a href="#配置-eslintrc-js" class="headerlink" title="配置 .eslintrc.js"></a>配置 .eslintrc.js</h2><pre class=" language-js"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
   root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
   env<span class="token punctuation">:</span> <span class="token punctuation">{</span>
     node<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
@@ -490,7 +490,7 @@
     parser<span class="token punctuation">:</span> <span class="token string">"@typescript-eslint/parser"</span><span class="token punctuation">,</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h3 id="配置-prettierrc"><a href="#配置-prettierrc" class="headerlink" title="配置 .prettierrc"></a>配置 .prettierrc</h3><p>具体配置参考官网：<a href="https://prettier.io/docs/en/options.html" target="_blank" rel="noopener">Options</a></p>
+<h2 id="配置-prettierrc"><a href="#配置-prettierrc" class="headerlink" title="配置 .prettierrc"></a>配置 .prettierrc</h2><p>具体配置参考官网：<a href="https://prettier.io/docs/en/options.html" target="_blank" rel="noopener">Options</a></p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"printWidth"</span><span class="token operator">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
   <span class="token property">"tabWidth"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
@@ -504,7 +504,7 @@
   <span class="token property">"parser"</span><span class="token operator">:</span> <span class="token string">"typescript"</span><span class="token punctuation">,</span>
   <span class="token property">"eslintIntegration"</span><span class="token operator">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span></code></pre>
-<h3 id="配置-package-json"><a href="#配置-package-json" class="headerlink" title="配置 package.json"></a>配置 package.json</h3><p>添加 husky 配置，添加 eslint 命令</p>
+<h2 id="配置-package-json"><a href="#配置-package-json" class="headerlink" title="配置 package.json"></a>配置 package.json</h2><p>添加 husky 配置，添加 eslint 命令</p>
 <pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
     <span class="token property">"eslint"</span><span class="token operator">:</span> <span class="token string">"eslint . --ext .ts  --fix"</span><span class="token punctuation">,</span>
