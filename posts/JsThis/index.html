@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>读《你不知道的JavaScript》笔记之：this | Oliver</title><meta name="keywords" content="前端, javascript, this, this关键字, this指向, 上下文, call, apply, bind, 你不知道的javascript"><meta name="author" content="Oliver"><meta name="copyright" content="Oliver"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读《你不知道的JavaScript》笔记之：this">
+<meta property="og:url" content="https://codekid.tech/posts/JsThis/index.html">
+<meta property="og:site_name" content="Oliver">
+<meta property="og:description" content="this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://codekid.tech/images/5XQk9gFlIAB2z3m.jpg">
+<meta property="article:published_time" content="2021-02-27T07:40:43.064Z">
+<meta property="article:modified_time" content="2020-09-26T10:55:02.000Z">
+<meta property="article:author" content="Oliver">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="this">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://codekid.tech/images/5XQk9gFlIAB2z3m.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://codekid.tech/posts/JsThis/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Oliver","link":"链接: ","source":"来源: Oliver","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-09-26 10:55:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/5XQk9gFlIAB2z3m.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Oliver</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">读《你不知道的JavaScript》笔记之：this</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-09-26T10:55:02.000Z" title="更新于 2020-09-26 10:55:02">2020-09-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近喜欢利用思维导图这个强大的工具，来梳理和提练知识要点。用的是 <a target="_blank" rel="noopener" href="https://naotu.baidu.com/">百度脑图</a>这个工具，应该是百度目前唯一一款良心产品了。😂 下面我按照思维导图的脉络，去把这个知识点来说清楚吧。（思维导图单击可放大查看）</p>
+<p><img src="/images/this%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.svg" alt="this思维导图.png"></p>
+<h1 id="一、关于-this"><a href="#一、关于-this" class="headerlink" title="一、关于 this"></a>一、关于 this</h1><p>this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。</p>
+<h1 id="二、对-this-错误的认识"><a href="#二、对-this-错误的认识" class="headerlink" title="二、对 this 错误的认识"></a>二、对 this 错误的认识</h1><p>在我刚从后端转前端初期那段时间，我也一样对 this 有这两大错误认识，这可能是就是 this 最具迷惑性的地方吧。在理解 this 是如何工作之前，我们就先消除这两种对于 this 的错误认识吧。</p>
+<h2 id="2-1-指向自身"><a href="#2-1-指向自身" class="headerlink" title="2.1 指向自身"></a>2.1 指向自身</h2><p>也许是受 Java 语言的影响，在我刚开始学习前端的初期也误以为 JavaScript 的 this 关键字和 Java 中的 this 关键字功能类似。</p>
+<p>让我来回忆一下 this 关键字在 Java 中有哪些用法吧：</p>
+<ol>
+<li>关键字可用来引用当前类的实例变量</li>
+<li>关键字可用于调用当前类方法</li>
+<li>可以用来调用当前类的构造函数</li>
+</ol>
+<p>我在编写 JavaScript 代码初期，认为既然 JavaScript 中函数可以被看作是一个对象，那么在函数中使用 this 从内部引用函数自身也是可行的，顺着这个惯性思维我写下了如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.count); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+
+<p>虽然表面上看 foo 被调用了 4 次，但是实际上 foo.count 仍然是 0。所以看来 this.count 和 foo.count 指向的并不是同一个变量。</p>
+<p>在执行 foo.count = 0; 时会在函数对象 foo 添加一个属性 count，而 this.count 则在全局作用域中创建 count 变量，它的值是 NaN。</p>
+<p>那么如何解决这种问题呢？</p>
+<ol>
+<li>通过词法作用域解决（这种方法虽然有效，但是回避了 this）：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  data.count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = &#123;</span><br><span class="line">  count: <span class="number">0</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data.count); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>通过具名函数解决：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  foo.count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.count); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>通过 call 解决：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo.count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  foo.call(foo, i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(foo.count); <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-联通作用域"><a href="#2-2-联通作用域" class="headerlink" title="2.2 联通作用域"></a>2.2 联通作用域</h2><p>第二种常见错误是，this 指向函数的作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  <span class="built_in">this</span>.bar();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// undefined 或 TypeError: this.bar is not a function</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码具有误导性，企图在 foo 函数中调用 bar（浏览器环境下可以调通，Node 环境下报错），又因为 bar 是在 foo 函数内部中被调用，所以从写法角度去看，会造成在 bar 函数中可以访问到变量 a 的假象，但是实际上并不能。</p>
+<p>以上就是学习 this 最容易犯的两大错误认识。</p>
+<h1 id="三、this-工作机制"><a href="#三、this-工作机制" class="headerlink" title="三、this 工作机制"></a>三、this 工作机制</h1><p>在消除对 this 误解之后，我们来探寻 this 真正的工作机制到底是什么。</p>
+<p>每个函数的 this 是在调用时被绑定的，完全取决于函数的调用位置（也就是函数的调用方法）</p>
+<h1 id="四、理解-this-绑定过程"><a href="#四、理解-this-绑定过程" class="headerlink" title="四、理解 this 绑定过程"></a>四、理解 this 绑定过程</h1><h2 id="4-1-寻找函数被调用的位置"><a href="#4-1-寻找函数被调用的位置" class="headerlink" title="4.1 寻找函数被调用的位置"></a>4.1 寻找函数被调用的位置</h2><p>寻找函数被调用的位置，最重要的就是分析调用栈（就是为了到达当前执行位置所调用的所有函数）。调用位置就在当前正在执行的函数的前一个调用中。</p>
+<p>用代码来表示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">baz</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 当前调用栈：baz</span></span><br><span class="line">  <span class="comment">// 因此，当前调用位置是全局作用域</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;baz&quot;</span>);</span><br><span class="line"></span><br><span class="line">  bar(); <span class="comment">// &lt;--- bar 的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 当前调用栈：baz --&gt; bar</span></span><br><span class="line">  <span class="comment">// 因此，当前调用位置在baz中</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;bar&quot;</span>);</span><br><span class="line"></span><br><span class="line">  foo(); <span class="comment">// &lt;--- foo 的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 当前调用栈：baz --&gt; bar --&gt; foo</span></span><br><span class="line">  <span class="comment">// 因此，当前调用位置在bar中</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;foo&quot;</span>);</span><br><span class="line"></span><br><span class="line">  foo(); <span class="comment">// &lt;--- bar 的调用位置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">baz(); <span class="comment">// &lt;-- baz 的调用位置</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-判断绑定规则"><a href="#4-2-判断绑定规则" class="headerlink" title="4.2 判断绑定规则"></a>4.2 判断绑定规则</h2><p>在找到函数被调用的位置之后，接下来就可以根据优先级判断适用的绑定规则。<br>以下绑定规则按优先级由高到低排列。</p>
+<h3 id="4-2-1-new-绑定"><a href="#4-2-1-new-绑定" class="headerlink" title="4.2.1 new 绑定"></a>4.2.1 new 绑定</h3><p>使用 new 来调用函数，或者发生构造函数调用时，会自动执行下面这些操作。</p>
+<ol>
+<li>创建（构造）一个全新的对象。</li>
+<li>这个新对象会执行 [[Prototype]]连接。</li>
+<li>这个新对象会绑定到函数调用的 this。</li>
+<li>如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.a = a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> foo(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(bar.a); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 new 调用 foo(…) 时，会构造一个新对象并把它绑定到 foo(…)调用中的 this 上。</p>
+<h3 id="4-2-2-显示绑定"><a href="#4-2-2-显示绑定" class="headerlink" title="4.2.2 显示绑定"></a>4.2.2 显示绑定</h3><p>JavaScript 提供了两个方法可以强制在某个对象上调用函数，call(…) 和 apply(…) 方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">foo.call(obj); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 foo.call(…)，我们可以在调用 foo 时强制把它的 this 绑定在 obj 上。</p>
+<h3 id="4-2-3-隐式绑定"><a href="#4-2-3-隐式绑定" class="headerlink" title="4.2.3 隐式绑定"></a>4.2.3 隐式绑定</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  foo: foo,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.foo(); <span class="comment">// 2 (调用位置)</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码，调用位置使用 obj 上下文来引用函数，可以说成 obj 对象“拥有”或者“包含”函数引用。</p>
+<p>当函数引用有上下文对象时，隐式绑定规则会把函数调用中的 this 绑定到这个上下文对象中。</p>
+<p>对象属性引用链中只有最后一层在调用位置中起作用。举个例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  a: <span class="number">42</span>,</span><br><span class="line">  foo: foo,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  obj2: obj2,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj1.obj2.foo(); <span class="comment">// 42 (调用位置)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-4-默认绑定"><a href="#4-2-4-默认绑定" class="headerlink" title="4.2.4 默认绑定"></a>4.2.4 默认绑定</h3><p>最常用的函数调用类型：独立函数调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 当前调用栈是：foo</span></span><br><span class="line">  <span class="comment">// 因此，当前调用位置是全局作用域</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">foo(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>上面这段代码，foo() 的调用的位于全局作用域中，且 foo() 是直接使用不带任何修饰的函数引用进行调用的，因此适用于默认绑定。</p>
+<p>在严格模式下，则不能将全局对象用于默认绑定，因此 this 会绑定到 undefined。</p>
+<h2 id="4-3-绑定例外"><a href="#4-3-绑定例外" class="headerlink" title="4.3 绑定例外"></a>4.3 绑定例外</h2><h3 id="4-3-1-被忽略的-this"><a href="#4-3-1-被忽略的-this" class="headerlink" title="4.3.1 被忽略的 this"></a>4.3.1 被忽略的 this</h3><p>当 null 或者 undefined 作为 this 的绑定对象传入 call、apply 或者 bind，这些值在调用时会被忽略，实际应用的是默认规定规则:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">foo.call(<span class="literal">null</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-2-间接引用"><a href="#4-3-2-间接引用" class="headerlink" title="4.3.2 间接引用"></a>4.3.2 间接引用</h3><p>调用函数的“间接引用”会应用默认绑定规则。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">a</span>: <span class="number">3</span>, <span class="attr">foo</span>: foo &#125;;</span><br><span class="line"><span class="keyword">var</span> p = &#123; <span class="attr">a</span>: <span class="number">4</span> &#125;;</span><br><span class="line"></span><br><span class="line">o.foo(); <span class="comment">// 3</span></span><br><span class="line">(p.foo = o.foo)(); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+
+<p>复制表达式 <code>p.foo = o.foo</code> 的返回值是目标函数的引用，因此调用位置是 foo() 而不是 p.foo() 或者 o.foo()。</p>
+<h1 id="五、注意"><a href="#五、注意" class="headerlink" title="五、注意"></a>五、注意</h1><h2 id="5-1-箭头函数"><a href="#5-1-箭头函数" class="headerlink" title="5.1 箭头函数"></a>5.1 箭头函数</h2><p>在 ES6 中规范中的箭头函数，完全不适用于四条绑定规则，而是根据当前词法作用域来决定 this。</p>
+<h2 id="5-2-编码风格"><a href="#5-2-编码风格" class="headerlink" title="5.2 编码风格"></a>5.2 编码风格</h2><p>在编码时，词法作用域风格与 this 风格代码不要混用，同时使用会使代码更加难以维护，并且可能也会更难编写。</p>
+<h1 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h1><p>如果要判断一个运行中的函数的 this 绑定，就需要找到这个函数的直接调用位置。找到之后就可以顺序应用下面这四条规则来判断 this 的绑定对象。</p>
+<ol>
+<li>由 new 调用？绑定到新创建的对象。</li>
+<li>由 call 或者 apply（或者 bind）调用？绑定到指定的对象。</li>
+<li>由上下文对象调用？绑定到那个上下文对象。</li>
+<li>默认：在严格模式下绑定到 undefined，否则绑定到全局对象。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Oliver</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://codekid.tech/posts/JsThis/">https://codekid.tech/posts/JsThis/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://codekid.tech" target="_blank">Oliver</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a><a class="post-meta__tags" href="/tags/this/">this</a></div><div class="post_share"><div class="social-share" data-image="/images/5XQk9gFlIAB2z3m.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/JsScope/"><img class="prev-cover" src="/images/5XQk9gFlIAB2z3m.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">读《你不知道的JavaScript》笔记之：作用域</div></div></a></div><div class="next-post pull-right"><a href="/posts/TsConfig/"><img class="next-cover" src="/images/FXahC9M3wfxZtjO.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">TypeScript 工程配置</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/JsScope/" title="读《你不知道的JavaScript》笔记之：作用域"><img class="cover" src="/images/5XQk9gFlIAB2z3m.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-02-27</div><div class="title">读《你不知道的JavaScript》笔记之：作用域</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Oliver</div><div class="author-info__description">全栈工程师养成记</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/OLIVERgZzy"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/OLIVERgZzy" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/GoLangLearn/" title="入门Go语言学习笔记"><img src="/images/55a9aba97d1e214f849ab2e55f3dabff.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入门Go语言学习笔记"/></a><div class="content"><a class="title" href="/posts/GoLangLearn/" title="入门Go语言学习笔记">入门Go语言学习笔记</a><time datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/Husky/" title="TypeScript 项目使用 Eslint + Prettier + husky 提高前端项目质量"><img src="/images/1_83PZeBAFQkP1XyOfDigxsg.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TypeScript 项目使用 Eslint + Prettier + husky 提高前端项目质量"/></a><div class="content"><a class="title" href="/posts/Husky/" title="TypeScript 项目使用 Eslint + Prettier + husky 提高前端项目质量">TypeScript 项目使用 Eslint + Prettier + husky 提高前端项目质量</a><time datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/JsScope/" title="读《你不知道的JavaScript》笔记之：作用域"><img src="/images/5XQk9gFlIAB2z3m.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="读《你不知道的JavaScript》笔记之：作用域"/></a><div class="content"><a class="title" href="/posts/JsScope/" title="读《你不知道的JavaScript》笔记之：作用域">读《你不知道的JavaScript》笔记之：作用域</a><time datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/JsThis/" title="读《你不知道的JavaScript》笔记之：this"><img src="/images/5XQk9gFlIAB2z3m.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="读《你不知道的JavaScript》笔记之：this"/></a><div class="content"><a class="title" href="/posts/JsThis/" title="读《你不知道的JavaScript》笔记之：this">读《你不知道的JavaScript》笔记之：this</a><time datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/TsConfig/" title="TypeScript 工程配置"><img src="/images/FXahC9M3wfxZtjO.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TypeScript 工程配置"/></a><div class="content"><a class="title" href="/posts/TsConfig/" title="TypeScript 工程配置">TypeScript 工程配置</a><time datetime="2021-02-27T07:40:43.064Z" title="发表于 2021-02-27 07:40:43">2021-02-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Oliver</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
