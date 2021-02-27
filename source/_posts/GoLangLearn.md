@@ -1,14 +1,11 @@
 ---
 title: 入门Go语言学习笔记
-author: Oliver
-top: false
-cover: true
+cover: /images/55a9aba97d1e214f849ab2e55f3dabff.jpeg
 toc: true
 mathjax: false
-date: 2020-08-25 22:54:11
-img: /images/55a9aba97d1e214f849ab2e55f3dabff.jpeg
-password:
-summary:
+updated: 2020-08-25 22:54:11
+top_img: /images/55a9aba97d1e214f849ab2e55f3dabff.jpeg
+description:
 tags:
   - Golang
 categories:

@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Oliver's Blog
-subtitle: 记录下自己成长的点滴
-description: 享受编程和技术所带来的快乐 - Enjoy Coding
-keywords: javascript,full stack developer,font end,blog,oliver's blog,typescript,nodejs,vue,中文博客
+title: Oliver
+subtitle: "全栈工程师养成记"
+description: "全栈工程师养成记"
+keywords: 生活,读书,全栈,编程,爱好,折腾,随笔,外语
 author: Oliver
 language: zh-CN
-timezone: Asia/Shanghai
+timezone: ""
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://olivergzzy.github.io/oliver.github.io
-root: /oliver.github.io/
-permalink: :year/:month/:title/
+## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
+url: https://codekid.tech
+root: /
+permalink: posts/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -45,13 +45,17 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ""
+  wrap: true
+  hljs: false
+prismjs:
   enable: false
-
-prism_plugin:
-  mode: "preprocess" # realtime/preprocess
-  theme: "tomorrow"
-  line_number: false # default false
-  custom_css:
+  preprocess: true
+  line_number: true
+  tab_replace: ""
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -77,8 +81,8 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: "mtime"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -94,31 +98,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery
+theme: butterfly
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repository: https://olivergzzy.github.io/oliver.github.io/
-  branch: master
-
-# 搜索
-search:
-  path: search.xml
-  field: post
-
-# 中文标题转拼音
-permalink_pinyin:
-  enable: true
-  separator: "-" # default: '-'
-
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: " "
-  order_by: -date
+  type: ""

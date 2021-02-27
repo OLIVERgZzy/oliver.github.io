@@ -1,14 +1,12 @@
 ---
 title: 读《你不知道的JavaScript》笔记之：this
-author: Oliver
 top: false
-cover: false
+cover: /images/5XQk9gFlIAB2z3m.jpg
 toc: false
 mathjax: false
-date: 2020-09-26 10:55:02
-img: /images/5XQk9gFlIAB2z3m.jpg
-password:
-summary: this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。
+updated: 2020-09-26 10:55:02
+top_img: /images/5XQk9gFlIAB2z3m.jpg
+description: this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。
 tags:
   - JavaScript
   - this

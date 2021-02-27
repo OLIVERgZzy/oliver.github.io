@@ -1,14 +1,9 @@
 ---
 title: TypeScript 基础语法
-author: Oliver
-img: /images/FXahC9M3wfxZtjO.jpg
-top: false
-cover: false
-toc: true
-mathjax: false
-date: 2020-06-26 21:36:33
-password:
-summary: 用代码示例带你一步一步了解 TypeScript 基础语法知识
+top_img: /images/FXahC9M3wfxZtjO.jpg
+cover: /images/FXahC9M3wfxZtjO.jpg
+updated: 2020-06-26 21:36:33
+description: 用代码示例带你一步一步了解 TypeScript 基础语法知识
 tags: TypeScript
 categories: 前端
 keywords: 前端, ts, typescript, typescript中文教程, ts中文教程, ts入门, ts教程, interface, ts interface, ts 接口, 接口, 泛型, ts 泛型, enum, 枚举, ts enum, ts枚举, ts声明文件

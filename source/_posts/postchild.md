@@ -1,14 +1,12 @@
 ---
 title: 模仿 Postwoman 实现了一个自己的接口调试工具
-author: Oliver
 top: false
-cover: true
+cover: /images/WX20200822-223911@2x.png
 toc: false
 mathjax: false
-date: 2020-08-22 23:30:43
-img: /images/WX20200822-223911@2x.png
-password:
-summary:
+updated: 2020-08-22 23:30:43
+top_img: /images/WX20200822-223911@2x.png
+description:
 tags:
   - Nuxt
   - Vue

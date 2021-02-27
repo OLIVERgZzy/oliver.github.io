@@ -1,14 +1,12 @@
 ---
 title: TypeScript 工程配置
-author: Oliver
 top: false
-cover: true
+cover: /images/FXahC9M3wfxZtjO.jpg
 toc: false
 mathjax: false
-date: 2020-06-26 22:16:32
-img: /images/FXahC9M3wfxZtjO.jpg
-password:
-summary: TypeScript 工程化配置入门
+updated: 2020-06-26 22:16:32
+top_img: /images/FXahC9M3wfxZtjO.jpg
+description: TypeScript 工程化配置入门
 tags: TypeScript
 categories: 前端
 keywords: 前端, ts, typescript, typescript中文教程, ts中文教程, ts工程配置, typescript工程配置, ts入门, ts配置项, ts教程
