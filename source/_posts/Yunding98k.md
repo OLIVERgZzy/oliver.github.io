@@ -1,5 +1,5 @@
 ---
-title: 云顶之弈攻略小程序开发实录
+title: 云顶之弈攻略小程序开发实录
 top: false
 cover: /images/1_JK4VDnsrF6YnAb2nyhMsdQ-2.png
 toc: false
