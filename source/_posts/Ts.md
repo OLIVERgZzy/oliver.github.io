@@ -2,7 +2,7 @@
 title: TypeScript 基础语法
 top_img: /images/FXahC9M3wfxZtjO.jpg
 cover: /images/FXahC9M3wfxZtjO.jpg
-updated: 2020-06-26 21:36:33
+date: 2020-06-26 21:36:33
 description: 用代码示例带你一步一步了解 TypeScript 基础语法知识
 tags: TypeScript
 categories: 前端

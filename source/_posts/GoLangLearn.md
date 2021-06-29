@@ -3,7 +3,7 @@ title: 入门Go语言学习笔记
 cover: /images/55a9aba97d1e214f849ab2e55f3dabff.jpeg
 toc: true
 mathjax: false
-updated: 2020-08-25 22:54:11
+date: 2020-08-25 22:54:11
 top_img: /images/55a9aba97d1e214f849ab2e55f3dabff.jpeg
 description:
 tags:

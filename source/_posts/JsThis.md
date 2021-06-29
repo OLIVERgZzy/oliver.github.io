@@ -4,7 +4,7 @@ top: false
 cover: /images/5XQk9gFlIAB2z3m.jpg
 toc: false
 mathjax: false
-updated: 2020-09-26 10:55:02
+date: 2020-09-26 10:55:02
 top_img: /images/5XQk9gFlIAB2z3m.jpg
 description: this 关键字是 JavaScript 中最复杂的机制之一。搞懂它有助于驾驭 JavaScript 这匹野马。
 tags:

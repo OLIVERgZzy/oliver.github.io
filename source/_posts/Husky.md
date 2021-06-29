@@ -4,7 +4,7 @@ cover: /images/1_83PZeBAFQkP1XyOfDigxsg.png
 top: false
 toc: false
 mathjax: false
-updated: 2020-11-07 9:24:45
+date: 2020-11-07 9:24:45
 top_img: /images/1_83PZeBAFQkP1XyOfDigxsg.png
 description: 如何让团队拥有更好的代码意识？如何使团队的代码风格近乎统一？如何防止错误的、不严谨的代码被提交？
 tags:

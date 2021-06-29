@@ -4,7 +4,7 @@ top: false
 cover: /images/FXahC9M3wfxZtjO.jpg
 toc: false
 mathjax: false
-updated: 2020-06-26 22:16:32
+date: 2020-06-26 22:16:32
 top_img: /images/FXahC9M3wfxZtjO.jpg
 description: TypeScript 工程化配置入门
 tags: TypeScript

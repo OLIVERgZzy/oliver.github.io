@@ -4,7 +4,7 @@ top: false
 cover: /images/5XQk9gFlIAB2z3m.jpg
 toc: false
 mathjax: false
-updated: 2020-06-29 23:30:43
+date: 2020-06-29 23:30:43
 top_img: /images/5XQk9gFlIAB2z3m.jpg
 description: 恰好最近读了《你不知道的 JavaScript》这本书，书中的第一章节就介绍了 JavaScript 的作用域，作者用着非常生动的文字和拟人的手法，描述了 JavaScript 执行过程中：引擎、编译器和作用域分别扮演的不同角色与职责。
 tags:
